@@ -1,1 +1,257 @@
-<p>cirugias works!</p>
+<section class="py-20 bg-gray-50 min-h-screen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 animate-fade-in-up">
+      <div class="flex justify-center items-center gap-2 mb-2">
+        <span class="text-blue-600 text-2xl">🩺</span>
+        <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Cirugías Médicas</h1>
+      </div>
+      <p class="text-gray-500 max-w-2xl mx-auto">
+        Procedimientos quirúrgicos especializados realizados por nuestro equipo médico con técnicas
+        modernas y seguras.
+      </p>
+    </div>
+
+    <div
+      class="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-16 flex items-start gap-4 shadow-sm animate-fade-in-up"
+    >
+      <div class="flex-shrink-0 mt-0.5">
+        <svg class="h-5 w-5 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fill-rule="evenodd"
+            d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-sm font-bold text-orange-800">Información Importante</h3>
+        <p class="text-xs md:text-sm text-orange-700 mt-1">
+          Todos los procedimientos quirúrgicos requieren evaluación previa, estudios preoperatorios
+          y seguimiento postoperatorio. Los tiempos de recuperación pueden variar según cada
+          paciente. Consulte con el especialista para determinar el mejor tratamiento para su caso.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for (item of cirugias; track item.titulo) {
+        <article
+          class="bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1"
+        >
+          <div class="relative h-56 bg-gray-100">
+            <img
+              [ngSrc]="item.imagen"
+              fill
+              class="object-cover w-full h-full"
+              [alt]="item.titulo"
+            />
+          </div>
+
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-blue-900 mb-4 leading-tight">
+              {{ item.titulo }}
+            </h3>
+
+            <p class="text-xs text-gray-600 mb-6 leading-relaxed">
+              {{ item.descripcion }}
+            </p>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 rounded-r-lg p-4 mb-6">
+              <p class="text-[10px] font-bold text-blue-800 uppercase mb-1">
+                Función del Procedimiento:
+              </p>
+              <p class="text-xs text-blue-900 font-medium">
+                {{ item.funcion }}
+              </p>
+            </div>
+
+            <div class="mt-auto pt-4 border-t border-gray-100">
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="flex items-start gap-2">
+                  <svg
+                    class="w-4 h-4 text-gray-400 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <p class="text-[10px] text-gray-400 uppercase font-semibold">Duración</p>
+                    <p class="text-xs font-medium text-gray-700">{{ item.duracion }}</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-2">
+                  <svg
+                    class="w-4 h-4 text-green-500 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    ></path>
+                  </svg>
+                  <div>
+                    <p class="text-[10px] text-gray-400 uppercase font-semibold">Recuperación</p>
+                    <p class="text-xs font-medium text-gray-700">{{ item.recuperacion }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="inline-flex items-center px-2.5 py-1 rounded-md bg-gray-100 text-gray-600 text-[10px] font-medium"
+              >
+                Anestesia: {{ item.anestesia }}
+              </div>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="mt-20 mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          class="bg-green-50 border border-green-100 rounded-2xl p-8 hover:shadow-md transition-shadow"
+        >
+          <h3 class="text-lg font-bold text-gray-900 mb-6 border-b border-green-200 pb-2">
+            Antes de la Cirugía
+          </h3>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <svg
+                class="w-5 h-5 text-green-500 mr-3 mt-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <span class="text-gray-700 text-sm md:text-base">Evaluación médica completa</span>
+            </li>
+            <li class="flex items-start">
+              <svg
+                class="w-5 h-5 text-green-500 mr-3 mt-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <span class="text-gray-700 text-sm md:text-base"
+                >Estudios preoperatorios (sangre, ECG, etc.)</span
+              >
+            </li>
+            <li class="flex items-start">
+              <svg
+                class="w-5 h-5 text-green-500 mr-3 mt-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <span class="text-gray-700 text-sm md:text-base"
+                >Ayuno según indicaciones médicas</span
+              >
+            </li>
+            <li class="flex items-start">
+              <svg
+                class="w-5 h-5 text-green-500 mr-3 mt-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <span class="text-gray-700 text-sm md:text-base"
+                >Suspender medicamentos según indicación</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="bg-blue-50 border border-blue-100 rounded-2xl p-8 hover:shadow-md transition-shadow"
+        >
+          <h3 class="text-lg font-bold text-gray-900 mb-6 border-b border-blue-200 pb-2">
+            Después de la Cirugía
+          </h3>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2"></span>
+              <span class="text-gray-700 text-sm md:text-base">Seguimiento médico regular</span>
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2"></span>
+              <span class="text-gray-700 text-sm md:text-base"
+                >Medicamentos según prescripción</span
+              >
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2"></span>
+              <span class="text-gray-700 text-sm md:text-base">Reposo y cuidados específicos</span>
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2"></span>
+              <span class="text-gray-700 text-sm md:text-base"
+                >Evitar actividades físicas intensas</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bg-sky-50 border border-sky-100 rounded-3xl p-10 md:p-14 text-center shadow-sm mx-auto max-w-5xl mb-10"
+    >
+      <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+        ¿Necesitas una Evaluación Quirúrgica?
+      </h2>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+        Nuestro especialista evaluará tu caso específico y te explicará detalladamente el
+        procedimiento más adecuado para ti.
+      </p>
+
+      <a
+        href="https://wa.me/522461567821?text=Hola%20Dr.%20Roberto,%20quisiera%20agendar%20una%20evaluaci%C3%B3n%20quir%C3%BArgica."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer"
+      >
+        Agendar Consulta
+      </a>
+    </div>
+  </div>
+</section>
