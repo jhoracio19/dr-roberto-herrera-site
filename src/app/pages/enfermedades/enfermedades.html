@@ -1,1 +1,268 @@
-<p>enfermedades works!</p>
+<section class="py-20 bg-gray-50 min-h-screen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">Enfermedades Comunes</h1>
+      <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+        Conoce las patologías más frecuentes del oído, garganta y nariz con explicaciones claras y
+        síntomas principales.
+      </p>
+    </div>
+
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="text-3xl">👂</span>
+        <h2 class="text-2xl font-bold text-gray-900">Enfermedades del Oído</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        @for (item of enfermedadesOido; track item.titulo) {
+          <article
+            class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
+          >
+            <div class="relative aspect-video bg-gray-100">
+              <img
+                [ngSrc]="item.imagen"
+                width="400"
+                height="225"
+                class="object-cover w-full h-full"
+                [alt]="item.titulo"
+              />
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-lg font-bold text-blue-600 mb-2 leading-tight">
+                {{ item.titulo }}
+              </h3>
+
+              <p class="text-xs text-gray-500 mb-4 leading-relaxed">
+                {{ item.descripcion }}
+              </p>
+
+              <div class="mt-auto">
+                <p class="text-xs font-bold text-gray-700 mb-2">Síntomas principales:</p>
+                <ul class="space-y-1">
+                  @for (sintoma of item.sintomas; track sintoma) {
+                    <li class="flex items-start text-xs text-gray-600">
+                      <span class="text-blue-400 mr-2">•</span>
+                      {{ sintoma }}
+                    </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+    <div class="mb-16 mt-16 border-t border-gray-200 pt-16">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="text-3xl text-blue-600">🗣️</span>
+        <h2 class="text-2xl font-extrabold text-gray-900">Enfermedades de la Garganta</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        @for (item of enfermedadesGarganta; track item.titulo) {
+          <article
+            class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1"
+          >
+            <div class="relative aspect-video bg-gray-50">
+              <img
+                [ngSrc]="item.imagen"
+                width="400"
+                height="225"
+                class="object-cover w-full h-full"
+                [alt]="item.titulo"
+              />
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-lg font-bold text-red-600 mb-2 leading-tight">
+                {{ item.titulo }}
+              </h3>
+
+              <p class="text-xs text-gray-500 mb-4 leading-relaxed line-clamp-3">
+                {{ item.descripcion }}
+              </p>
+
+              <div class="mt-auto">
+                <p class="text-xs font-bold text-gray-700 mb-2">Síntomas principales:</p>
+                <ul class="space-y-1">
+                  @for (sintoma of item.sintomas; track sintoma) {
+                    <li class="flex items-start text-xs text-gray-600">
+                      <span class="text-blue-500 mr-2 text-[10px] mt-0.5">●</span>
+                      {{ sintoma }}
+                    </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+
+    <div class="mb-16 mt-16 border-t border-gray-200 pt-16">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="text-3xl text-green-600">👃</span>
+        <h2 class="text-2xl font-extrabold text-gray-900">Enfermedades de la Nariz</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        @for (item of enfermedadesNariz; track item.titulo) {
+          <article
+            class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1"
+          >
+            <div class="relative aspect-video bg-gray-50">
+              <img
+                [ngSrc]="item.imagen"
+                width="400"
+                height="225"
+                class="object-cover w-full h-full"
+                [alt]="item.titulo"
+              />
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-lg font-bold text-green-600 mb-2 leading-tight">
+                {{ item.titulo }}
+              </h3>
+
+              <p class="text-xs text-gray-500 mb-4 leading-relaxed line-clamp-3">
+                {{ item.descripcion }}
+              </p>
+
+              <div class="mt-auto">
+                <p class="text-xs font-bold text-gray-700 mb-2">Síntomas principales:</p>
+                <ul class="space-y-1">
+                  @for (sintoma of item.sintomas; track sintoma) {
+                    <li class="flex items-start text-xs text-gray-600">
+                      <span class="text-green-500 mr-2 text-[10px] mt-0.5">●</span>
+                      {{ sintoma }}
+                    </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+
+    <div class="mb-16 mt-16 border-t border-gray-200 pt-16">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="text-3xl text-blue-600">🎙️</span>
+        <h2 class="text-2xl font-extrabold text-gray-900">Enfermedades de la Laringe</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (item of enfermedadesLaringe; track item.titulo) {
+          <article
+            class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1"
+          >
+            <div class="relative aspect-video bg-gray-50">
+              <img
+                [ngSrc]="item.imagen"
+                width="400"
+                height="225"
+                class="object-cover w-full h-full"
+                [alt]="item.titulo"
+              />
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-lg font-bold text-orange-600 mb-2 leading-tight">
+                {{ item.titulo }}
+              </h3>
+
+              <p class="text-xs text-gray-500 mb-4 leading-relaxed line-clamp-3">
+                {{ item.descripcion }}
+              </p>
+
+              <div class="mt-auto">
+                <p class="text-xs font-bold text-gray-700 mb-2">Síntomas principales:</p>
+                <ul class="space-y-1">
+                  @for (sintoma of item.sintomas; track sintoma) {
+                    <li class="flex items-start text-xs text-gray-600">
+                      <span class="text-orange-500 mr-2 text-[10px] mt-0.5">●</span>
+                      {{ sintoma }}
+                    </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+
+    <div class="mb-16 mt-16 border-t border-gray-200 pt-16">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="text-3xl text-purple-600">👤</span>
+        <h2 class="text-2xl font-extrabold text-gray-900">Enfermedades del Cuello</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (item of enfermedadesCuello; track item.titulo) {
+          <article
+            class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1"
+          >
+            <div class="relative aspect-video bg-gray-50">
+              <img
+                [ngSrc]="item.imagen"
+                width="400"
+                height="225"
+                class="object-cover w-full h-full"
+                [alt]="item.titulo"
+              />
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-lg font-bold text-purple-600 mb-2 leading-tight">
+                {{ item.titulo }}
+              </h3>
+
+              <p class="text-xs text-gray-500 mb-4 leading-relaxed line-clamp-3">
+                {{ item.descripcion }}
+              </p>
+
+              <div class="mt-auto">
+                <p class="text-xs font-bold text-gray-700 mb-2">Síntomas principales:</p>
+                <ul class="space-y-1">
+                  @for (sintoma of item.sintomas; track sintoma) {
+                    <li class="flex items-start text-xs text-gray-600">
+                      <span class="text-purple-500 mr-2 text-[10px] mt-0.5">●</span>
+                      {{ sintoma }}
+                    </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+    <div class="mt-24">
+      <div
+        class="bg-blue-50 rounded-3xl p-10 md:p-16 text-center border border-blue-100 shadow-sm mx-auto max-w-5xl"
+      >
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-6">
+          ¿Tienes alguno de estos síntomas?
+        </h2>
+
+        <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+          No esperes más. Un diagnóstico temprano es clave para un tratamiento efectivo. Agenda tu
+          consulta con nuestro especialista y recupera tu calidad de vida.
+        </p>
+
+        <a
+          href="https://wa.me/522461567821?text=Hola%20Dr.%20Roberto,%20le%C3%AD%20sobre%20los%20s%C3%ADntomas%20en%20su%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20consulta."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg cursor-pointer"
+        >
+          Agendar Consulta
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
