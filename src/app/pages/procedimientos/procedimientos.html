@@ -1,0 +1,309 @@
+<section class="py-20 bg-white min-h-screen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20">
+      <div class="flex justify-center mb-4">
+        <div class="bg-purple-100 p-3 rounded-full">
+          <svg
+            class="w-8 h-8 text-purple-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">
+        Procedimientos Estéticos
+      </h1>
+      <p class="text-sm md:text-base text-gray-500 max-w-2xl mx-auto">
+        Tratamientos estéticos faciales avanzados para realzar tu belleza natural con técnicas
+        seguras y resultados excepcionales.
+      </p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-8">
+      <div class="bg-pink-100 p-1.5 rounded-full">
+        <svg class="w-4 h-4 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+          />
+        </svg>
+      </div>
+      <h2 class="text-xl font-bold text-gray-900">Cirugías Estéticas Faciales</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (item of procedimientos; track item.titulo) {
+        <article
+          class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full"
+        >
+          <div class="relative h-48 bg-gray-100">
+            <img
+              [ngSrc]="item.imagen"
+              fill
+              class="object-cover w-full h-full"
+              [alt]="item.titulo"
+            />
+          </div>
+
+          <div class="p-5 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-pink-600 mb-3">
+              {{ item.titulo }}
+            </h3>
+
+            <p class="text-xs text-gray-500 mb-4 leading-relaxed">
+              {{ item.descripcion }}
+            </p>
+
+            <div class="bg-pink-50 rounded-lg p-3 mb-6">
+              <p class="text-[10px] md:text-xs text-pink-800 font-medium leading-tight">
+                {{ item.beneficioDestacado }}
+              </p>
+            </div>
+
+            <div class="mt-auto space-y-2 border-t border-gray-100 pt-4">
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-3.5 h-3.5 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                <span class="text-[10px] text-gray-500 font-semibold">Duración:</span>
+                <span class="text-[10px] text-gray-700">{{ item.duracion }}</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-3.5 h-3.5 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                <span class="text-[10px] text-gray-500 font-semibold">Recuperación:</span>
+                <span class="text-[10px] text-gray-700">{{ item.recuperacion }}</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-3.5 h-3.5 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                  ></path>
+                </svg>
+                <span class="text-[10px] text-gray-500 font-semibold">Resultados:</span>
+                <span class="text-[10px] text-gray-700">{{ item.resultados }}</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="mt-24 mb-8">
+      <div class="flex items-center gap-2 mb-8">
+        <div class="bg-purple-100 p-1.5 rounded-full">
+          <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+            ></path>
+          </svg>
+        </div>
+        <h2 class="text-xl font-bold text-gray-900">Procedimientos No Quirúrgicos</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        @for (item of noQuirurgicos; track item.titulo) {
+          <article
+            class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full"
+          >
+            <div class="relative h-48 bg-gray-100">
+              <img
+                [ngSrc]="item.imagen"
+                fill
+                class="object-cover w-full h-full"
+                [alt]="item.titulo"
+              />
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="text-lg font-bold text-pink-600 mb-3">
+                {{ item.titulo }}
+              </h3>
+
+              <p class="text-xs text-gray-500 mb-4 leading-relaxed">
+                {{ item.descripcion }}
+              </p>
+
+              <div class="bg-pink-50 rounded-lg p-3 mb-6">
+                <p class="text-[10px] md:text-xs text-pink-800 font-medium leading-tight">
+                  {{ item.beneficioDestacado }}
+                </p>
+              </div>
+
+              <div class="mt-auto space-y-2 border-t border-gray-100 pt-4">
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-3.5 h-3.5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  <span class="text-[10px] text-gray-500 font-semibold">Duración:</span>
+                  <span class="text-[10px] text-gray-700">{{ item.duracion }}</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-3.5 h-3.5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  <span class="text-[10px] text-gray-500 font-semibold">Recuperación:</span>
+                  <span class="text-[10px] text-gray-700">{{ item.recuperacion }}</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-3.5 h-3.5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                    ></path>
+                  </svg>
+                  <span class="text-[10px] text-gray-500 font-semibold">Resultados:</span>
+                  <span class="text-[10px] text-gray-700">{{ item.resultados }}</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+
+    <div class="mt-24 mb-16">
+      <h2 class="text-2xl font-bold text-center text-purple-800 mb-12">
+        Proceso de Consulta Estética
+      </h2>
+
+      <div class="bg-purple-50 rounded-2xl border border-purple-100 p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+          <div
+            class="hidden md:block absolute top-6 left-0 w-full h-0.5 bg-purple-200 -z-10 transform translate-y-2"
+          ></div>
+
+          <div class="flex flex-col items-center text-center relative">
+            <div
+              class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl md:text-2xl font-bold mb-4 shadow-md z-10"
+            >
+              1
+            </div>
+            <h3 class="text-sm md:text-base font-bold text-purple-900 mb-2">Consulta Inicial</h3>
+            <p class="text-xs text-purple-700 leading-tight">
+              Evaluación facial y análisis de expectativas
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center text-center relative">
+            <div
+              class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl md:text-2xl font-bold mb-4 shadow-md z-10"
+            >
+              2
+            </div>
+            <h3 class="text-sm md:text-base font-bold text-purple-900 mb-2">Plan Personalizado</h3>
+            <p class="text-xs text-purple-700 leading-tight">
+              Diseño de tratamiento específico para ti
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center text-center relative">
+            <div
+              class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl md:text-2xl font-bold mb-4 shadow-md z-10"
+            >
+              3
+            </div>
+            <h3 class="text-sm md:text-base font-bold text-purple-900 mb-2">Procedimiento</h3>
+            <p class="text-xs text-purple-700 leading-tight">Realización con técnicas avanzadas</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center relative">
+            <div
+              class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl md:text-2xl font-bold mb-4 shadow-md z-10"
+            >
+              4
+            </div>
+            <h3 class="text-sm md:text-base font-bold text-purple-900 mb-2">Seguimiento</h3>
+            <p class="text-xs text-purple-700 leading-tight">Control postoperatorio y cuidados</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-rose-50 border border-rose-100 rounded-3xl p-12 text-center shadow-sm">
+      <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+        ¿Listo para Realzar tu Belleza Natural?
+      </h2>
+      <p class="text-sm md:text-base text-gray-600 mb-8 max-w-2xl mx-auto">
+        Agenda una consulta personalizada y descubre qué tratamiento estético es el ideal para ti.
+        Nuestro especialista te guiará en cada paso del proceso.
+      </p>
+
+      <a
+        href="https://wa.me/522461567821?text=Hola%20Dr.%20Roberto,%20quisiera%20agendar%20una%20Consulta%20Est%C3%A9tica."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer"
+      >
+        Consulta Estética
+      </a>
+    </div>
+  </div>
+</section>
