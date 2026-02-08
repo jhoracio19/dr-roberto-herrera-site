@@ -7,46 +7,59 @@
         <img class="h-12 w-auto object-contain" src="logo.png" alt="Logo Dr. Otorrino" />
       </div>
 
-      <div class="hidden md:flex space-x-10 items-center">
+      <div class="hidden md:flex space-x-8 items-center">
         <a
           routerLink="/"
-          routerLinkActive="text-blue-600 font-semibold"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200"
+          fragment=""
+          (click)="closeMenu()"
+          class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 cursor-pointer"
         >
           Inicio
         </a>
 
         <a
-          routerLink="/servicios"
-          routerLinkActive="text-blue-600 font-semibold"
-          class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200"
+          routerLink="/"
+          fragment="servicios"
+          (click)="closeMenu()"
+          class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 cursor-pointer"
         >
           Servicios
         </a>
 
         <a
-          routerLink="/doctor"
-          routerLinkActive="text-blue-600 font-semibold"
-          class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200"
+          routerLink="/"
+          fragment="doctor"
+          (click)="closeMenu()"
+          class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 cursor-pointer"
         >
           Acerca del Doctor
         </a>
 
         <a
-          routerLink="/testimonios"
-          routerLinkActive="text-blue-600 font-semibold"
-          class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200"
+          routerLink="/"
+          fragment="testimonios"
+          (click)="closeMenu()"
+          class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 cursor-pointer"
         >
           Testimonios
         </a>
 
         <a
-          routerLink="/contacto"
-          routerLinkActive="text-blue-600 font-semibold"
-          class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200"
+          routerLink="/"
+          fragment="contacto"
+          (click)="closeMenu()"
+          class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 cursor-pointer"
         >
           Contacto
+        </a>
+
+        <a
+          href="https://wa.me/522461567821?text=Hola%20Dr.%20Roberto,%20vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-blue-600 text-white px-5 py-2.5 rounded-full font-bold shadow-md hover:bg-blue-700 hover:shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer ml-4"
+        >
+          Agendar Cita
         </a>
       </div>
 
@@ -86,44 +99,52 @@
       <div class="px-4 pt-4 pb-6 space-y-3">
         <a
           routerLink="/"
+          fragment=""
           (click)="closeMenu()"
-          routerLinkActive="text-blue-600 bg-blue-50"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50"
+          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 cursor-pointer"
         >
           Inicio
         </a>
         <a
-          routerLink="/servicios"
+          routerLink="/"
+          fragment="servicios"
           (click)="closeMenu()"
-          routerLinkActive="text-blue-600 bg-blue-50"
-          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50"
+          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 cursor-pointer"
         >
           Servicios
         </a>
         <a
-          routerLink="/doctor"
+          routerLink="/"
+          fragment="doctor"
           (click)="closeMenu()"
-          routerLinkActive="text-blue-600 bg-blue-50"
-          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50"
+          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 cursor-pointer"
         >
           Acerca del Doctor
         </a>
         <a
-          routerLink="/testimonios"
+          routerLink="/"
+          fragment="testimonios"
           (click)="closeMenu()"
-          routerLinkActive="text-blue-600 bg-blue-50"
-          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50"
+          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 cursor-pointer"
         >
           Testimonios
         </a>
         <a
-          routerLink="/contacto"
+          routerLink="/"
+          fragment="contacto"
           (click)="closeMenu()"
-          routerLinkActive="text-blue-600 bg-blue-50"
-          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50"
+          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 cursor-pointer"
         >
           Contacto
+        </a>
+
+        <a
+          href="https://wa.me/522461567821?text=Hola%20Dr.%20Roberto,%20vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block w-full text-center mt-4 bg-blue-600 text-white px-5 py-3 rounded-lg font-bold shadow-md hover:bg-blue-700 cursor-pointer"
+        >
+          Agendar Cita
         </a>
       </div>
     </div>

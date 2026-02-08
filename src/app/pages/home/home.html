@@ -22,8 +22,10 @@
 
         <div class="flex flex-col sm:flex-row gap-4">
           <a
-            routerLink="/contacto"
-            class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 shadow-sm hover:shadow-md"
+            href="https://wa.me/522461567821?text=Hola%20Dr.%20Roberto,%20vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
           >
             Agendar Cita
           </a>
@@ -49,8 +51,11 @@
 
       <div class="relative">
         <img
+          ngSrc="dr_roberto.jpg"
+          width="800"
+          height="600"
+          priority
           class="w-full h-auto object-cover rounded-2xl shadow-xl"
-          src="dr_roberto.jpg"
           alt="Dr. Roberto Herrera Otorrinolaringólogo"
         />
 
@@ -184,90 +189,79 @@
   </div>
 </section>
 
-<section class="py-20 bg-white overflow-hidden">
+<section class="py-24 bg-white overflow-hidden" id="doctor">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-      <div class="relative mb-12 lg:mb-0">
-        <div class="relative rounded-2xl shadow-xl overflow-hidden aspect-[4/3] group">
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          ></div>
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div class="w-full lg:w-1/2 relative">
+        <div class="absolute top-4 -left-4 w-full h-full bg-blue-100 rounded-3xl -z-10"></div>
 
+        <div
+          class="relative rounded-3xl shadow-2xl overflow-hidden aspect-[4/5] lg:aspect-square w-full max-w-md mx-auto"
+        >
           <img
-            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+            class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
             src="dr_roberto.jpg"
-            alt="Dr. Roberto Herrera en su consultorio"
+            alt="Dr. Roberto Herrera"
           />
         </div>
       </div>
 
-      <div class="lg:pl-8">
+      <div class="w-full lg:w-1/2">
         <span
-          class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 uppercase tracking-wide mb-6"
+          class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold bg-green-100 text-green-700 uppercase tracking-wide mb-6"
         >
           Certificado
         </span>
 
-        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-6">Acerca del Doctor</h2>
+        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-6 leading-tight">
+          Acerca del Doctor
+        </h2>
 
         <p class="text-lg text-gray-600 mb-8 leading-relaxed">
           Dr. Roberto Herrera es un otorrinolaringólogo certificado con más de 18 años de
-          experiencia en el diagnóstico y tratamiento de trastornos del oído, nariz y garganta. Su
-          enfoque combina la tecnología médica avanzada con un trato humano y personalizado.
+          experiencia. Su enfoque combina la tecnología médica avanzada con un trato humano,
+          asegurando que cada paciente entienda su diagnóstico y tratamiento.
         </p>
 
-        <ul class="space-y-5">
+        <ul class="space-y-6">
           <li class="flex items-start">
-            <div class="flex-shrink-0 mt-1">
-              <svg class="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <div class="flex-shrink-0 bg-blue-50 rounded-lg p-2 mt-1">
+              <svg
+                class="h-6 w-6 text-blue-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path
-                  d="M12 15.4l-3.76 2.27 1-4.28L6 10.48l4.38-.38L12 6l1.62 4.1 4.38.38-3.24 2.91 1 4.28L12 15.4z"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                  clip-rule="evenodd"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
             </div>
-            <p class="ml-4 text-base text-gray-700 font-medium">
+            <p class="ml-4 text-base text-gray-700 font-medium pt-2">
               Certificado por el Consejo Mexicano de Otorrinolaringología
             </p>
           </li>
-
           <li class="flex items-start">
-            <div class="flex-shrink-0 mt-1">
-              <svg class="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <div class="flex-shrink-0 bg-blue-50 rounded-lg p-2 mt-1">
+              <svg
+                class="h-6 w-6 text-blue-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path
-                  d="M12 15.4l-3.76 2.27 1-4.28L6 10.48l4.38-.38L12 6l1.62 4.1 4.38.38-3.24 2.91 1 4.28L12 15.4z"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                  clip-rule="evenodd"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
                 />
               </svg>
             </div>
-            <p class="ml-4 text-base text-gray-700 font-medium">
+            <p class="ml-4 text-base text-gray-700 font-medium pt-2">
               Especialización en Cirugía Endoscópica Nasal
-            </p>
-          </li>
-
-          <li class="flex items-start">
-            <div class="flex-shrink-0 mt-1">
-              <svg class="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 15.4l-3.76 2.27 1-4.28L6 10.48l4.38-.38L12 6l1.62 4.1 4.38.38-3.24 2.91 1 4.28L12 15.4z"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <p class="ml-4 text-base text-gray-700 font-medium">
-              Miembro de la Sociedad Mexicana de Otorrinolaringología
             </p>
           </li>
         </ul>
@@ -276,7 +270,7 @@
   </div>
 </section>
 
-<section class="py-20 bg-white border-t border-gray-100">
+<section id="testimonios" class="py-20 bg-white border-t border-gray-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">
@@ -324,9 +318,10 @@
         </div>
 
         <a
-          href="https://g.page/r/TU_LINK_DE_GOOGLE_AQUI/review"
+          href="https://search.google.com/local/writereview?placeid=ChIJd0KAYS7Zz4URD6qM3SLM21g"
           target="_blank"
-          class="bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105 text-sm md:text-base"
+          rel="noopener noreferrer"
+          class="bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105 text-sm md:text-base cursor-pointer"
         >
           Déjanos una reseña en Google
         </a>
@@ -387,7 +382,7 @@
   </div>
 </section>
 
-<section class="py-20 bg-gray-50">
+<section id="contacto" class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">Ubicación y Contacto</h2>
@@ -538,24 +533,24 @@
           class="flex-grow w-full h-64 md:h-80 lg:h-full min-h-[300px] rounded-xl overflow-hidden relative bg-gray-100"
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.567701193306!2d-98.24036668509374!3d19.31792698694935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfd9676644f1c7%3A0x6b86558661138656!2sDr.%20Roberto%20Oscar%20Herrera%20Otorrinolaring%C3%B3logo!5e0!3m2!1ses-419!2smx!4v1675712345678!5m2!1ses-419!2smx"
-            width="100%"
-            height="100%"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15059.979681647268!2d-98.24619412422177!3d19.3260267153482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfd92e61804277%3A0x58dbcc22dd8caa0f!2sDr.%20Roberto%20Oscar%20Herrera%20Otorrinolaring%C3%B3logo!5e0!3m2!1ses-419!2smx!4v1770529697010!5m2!1ses-419!2smx"
+            width="600"
+            height="450"
             style="border: 0"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            class="absolute inset-0"
-          >
-          </iframe>
+          ></iframe>
         </div>
 
         <div class="p-6 text-center">
           <a
-            routerLink="/contacto"
-            class="inline-block w-full sm:w-auto px-8 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+            href="https://wa.me/522461567821?text=Hola%20Dr.%20Roberto,%20vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
           >
-            Agendar Cita Ahora
+            Agendar Cita
           </a>
         </div>
       </div>
