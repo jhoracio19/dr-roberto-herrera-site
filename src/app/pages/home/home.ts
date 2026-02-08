@@ -1,40 +1,46 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
-import { NgOptimizedImage } from '@angular/common';
+
+// Asegúrate que la ruta sea correcta según donde creaste el servicio
+// Si lo llamaste 'json-ld.service.ts', la clase suele ser 'JsonLdService'
+import { JsonLd } from '../../services/json-ld';
 
 @Component({
   selector: 'app-home',
+  standalone: true, // Agregado para Angular 17+
   imports: [RouterLink, CommonModule, NgOptimizedImage],
-  templateUrl: './home.html',
+  templateUrl: './home.html', // Verifica si es .html o .component.html
   styles: ``,
 })
-export class Home {
-  // Inyectamos los servicios de SEO
+export class Home implements OnInit {
+  // Usar convención HomeComponent
+
+  // Inyectamos los servicios
   constructor(
     private titleService: Title,
     private metaService: Meta,
+    private jsonLd: JsonLd, // Inyección del servicio de Schema
   ) {}
 
   ngOnInit(): void {
-    // 1. Título de la Pestaña (Vital para el clic en Google)
+    // --- 1. SEO DE PESTAÑA Y META TAGS ---
     this.titleService.setTitle('Otorrinolaringólogo en Tlaxcala | Dr. Roberto Herrera');
 
-    // 2. Meta Descripción (Lo que sale gris abajo del link en Google)
     this.metaService.updateTag({
       name: 'description',
       content:
         'Dr. Roberto Herrera, especialista certificado en otorrinolaringología en Tlaxcala. Tratamientos para oídos, nariz y garganta. ¡Agenda tu cita hoy!',
     });
 
-    // 3. Keywords (Opcional, pero ayuda)
     this.metaService.updateTag({
       name: 'keywords',
-      content: 'Otorrino Tlaxcala, Dr Roberto Herrera, Oídos, Nariz, Garganta, Audiología',
+      content:
+        'Otorrino Tlaxcala, Dr Roberto Herrera, Oídos, Nariz, Garganta, Audiología, Chiautempan',
     });
 
-    // 4. Open Graph (Para que se vea bonita la tarjeta al compartir en WhatsApp/Facebook)
+    // --- 2. OPEN GRAPH (WhatsApp / Facebook) ---
     this.metaService.updateTag({
       property: 'og:title',
       content: 'Otorrinolaringólogo en Tlaxcala | Dr. Roberto Herrera',
@@ -45,11 +51,56 @@ export class Home {
     });
     this.metaService.updateTag({
       property: 'og:image',
-      // TODO: cambiar la url por el dominio
       content: 'https://otorrinotlaxcala.com/dr_roberto.jpg',
-    }); // <--- Cambiar URL cuando subas la web
+    }); // URL ABSOLUTA necesaria
+    this.metaService.updateTag({ property: 'og:url', content: 'https://otorrinotlaxcala.com/' });
+    this.metaService.updateTag({ property: 'og:type', content: 'medical.physician' });
+
+    // --- 3. SCHEMA MARKUP (JSON-LD) - ¡LO QUE FALTABA! ---
+    // Este objeto le dice a Google Maps y al Buscador quién es el doctor
+    const schemaDoctor = {
+      '@context': 'https://schema.org',
+      '@type': 'Physician',
+      name: 'Dr. Roberto Herrera',
+      image: 'https://otorrinotlaxcala.com/dr_roberto.jpg',
+      description: 'Especialista en Otorrinolaringología y Cirugía de Cabeza y Cuello.',
+      medicalSpecialty: 'Otolaryngologist',
+      telephone: '+522461567821',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'G. Valle 18, Centro', // ¡PON LA DIRECCIÓN REAL DE TLAXCALA!
+        addressLocality: 'Tlaxcala de Xicohténcatl',
+        addressRegion: 'Tlax',
+        postalCode: '90000',
+        addressCountry: 'MX',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '19.32603386167681',
+        longitude: '-98.22713470213061',
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '10:00',
+          closes: '20:00',
+        },
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: 'Saturday',
+          opens: '10:00',
+          closes: '14:00',
+        },
+      ],
+      priceRange: '$$$',
+    };
+
+    // Inyectamos el script invisible en el head
+    this.jsonLd.insertSchema(schemaDoctor);
   }
-  // Datos reales copiados de tu captura
+
+  // --- DATOS DE RESEÑAS ---
   reviews = [
     {
       name: 'Ofe Flores',
@@ -84,7 +135,7 @@ export class Home {
       date: 'hace 2 meses',
       text: 'Doc. Roberto Herrera, excelente atención y buen otorrinolaringólogo.',
       initial: 'M',
-      color: 'bg-purple-600', // Variamos el color
+      color: 'bg-purple-600',
     },
   ];
 }

@@ -22,13 +22,30 @@ export class Enfermedades {
   ) {}
 
   ngOnInit(): void {
-    // SEO Básico para esta página
-    this.title.setTitle('Enfermedades del Oído, Nariz y Garganta | Dr. Roberto Herrera');
+    // 1. Título para Google
+    this.title.setTitle('Enfermedades de Oído, Nariz y Garganta | Dr. Roberto Herrera');
+
+    // 2. Descripción para Google (Máximo 160 caracteres)
     this.meta.updateTag({
       name: 'description',
       content:
-        'Conoce las patologías más frecuentes del oído, garganta y nariz con explicaciones claras.',
+        'Guía completa de síntomas y tratamientos para otitis, sinusitis, rinitis y más. Consulta con el Dr. Roberto Herrera en Tlaxcala.',
     });
+
+    // 3. OBLIGATORIO: Etiquetas para WhatsApp/Facebook (Open Graph)
+    this.meta.updateTag({
+      property: 'og:title',
+      content: '¿Dolor de oído o garganta? Conoce los síntomas.',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: 'Guía médica de enfermedades comunes y cuándo acudir al especialista.',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://otorrinotlaxcala.com/assets/images/enfermedades/desviacion.jpg',
+    }); // ¡Ojo! Debe ser URL absoluta (con https)
+    this.meta.updateTag({ property: 'og:url', content: 'https://otorrino.com/enfermedades' });
   }
 
   // DATOS: Aquí cargarás tus 33 enfermedades.
