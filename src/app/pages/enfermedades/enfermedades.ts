@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common'; // <--- Importante: NgOptimizedImage
+import { Component, OnInit } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
 interface Enfermedad {
@@ -11,11 +11,16 @@ interface Enfermedad {
 
 @Component({
   selector: 'app-enfermedades',
+  standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: './enfermedades.html',
   styles: ``,
 })
-export class Enfermedades {
+export class Enfermedades implements OnInit {
+  // CONTROL DE VISIBILIDAD
+  // Empezamos mostrando solo 4 tarjetas de oído (la primera fila en Desktop)
+  cantidadOidoVisible = 4;
+
   constructor(
     private title: Title,
     private meta: Meta,
@@ -25,14 +30,14 @@ export class Enfermedades {
     // 1. Título para Google
     this.title.setTitle('Enfermedades de Oído, Nariz y Garganta | Dr. Roberto Herrera');
 
-    // 2. Descripción para Google (Máximo 160 caracteres)
+    // 2. Descripción para Google
     this.meta.updateTag({
       name: 'description',
       content:
         'Guía completa de síntomas y tratamientos para otitis, sinusitis, rinitis y más. Consulta con el Dr. Roberto Herrera en Tlaxcala.',
     });
 
-    // 3. OBLIGATORIO: Etiquetas para WhatsApp/Facebook (Open Graph)
+    // 3. Open Graph (WhatsApp/Facebook)
     this.meta.updateTag({
       property: 'og:title',
       content: '¿Dolor de oído o garganta? Conoce los síntomas.',
@@ -43,13 +48,20 @@ export class Enfermedades {
     });
     this.meta.updateTag({
       property: 'og:image',
-      content: 'https://otorrinotlaxcala.com/assets/images/enfermedades/desviacion.jpg',
-    }); // ¡Ojo! Debe ser URL absoluta (con https)
-    this.meta.updateTag({ property: 'og:url', content: 'https://otorrino.com/enfermedades' });
+      content: 'https://otorrinotlaxcala.com/assets/images/enfermedades/desviacion.webp',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://otorrinotlaxcala.com/enfermedades',
+    });
   }
 
-  // DATOS: Aquí cargarás tus 33 enfermedades.
-  // Esto mantiene el HTML limpio.
+  // FUNCIÓN PARA CARGAR MÁS
+  cargarMasOido() {
+    this.cantidadOidoVisible = this.enfermedadesOido.length; // Muestra todas
+  }
+
+  // DATOS
   enfermedadesOido: Enfermedad[] = [
     {
       titulo: 'Cerilla (Tapón de Cerumen)',
@@ -61,7 +73,7 @@ export class Enfermedades {
         'Picazón en el oído',
         'Zumbido ocasional',
       ],
-      imagen: 'assets/images/enfermedades/cerilla.webp', // Asegúrate de usar rutas reales
+      imagen: 'assets/images/enfermedades/cerilla.webp',
     },
     {
       titulo: 'Pérdida de la audición',
@@ -128,8 +140,6 @@ export class Enfermedades {
       ],
       imagen: 'assets/images/enfermedades/hipoacusia.webp',
     },
-    // ... (Aquí van las anteriores que ya pusiste)
-
     {
       titulo: 'Otoesclerosis',
       descripcion:

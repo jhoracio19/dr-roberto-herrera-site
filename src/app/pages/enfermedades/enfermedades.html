@@ -15,7 +15,11 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        @for (item of enfermedadesOido; track item.titulo) {
+        @for (
+          item of enfermedadesOido | slice: 0 : cantidadOidoVisible;
+          track item.titulo;
+          let i = $index
+        ) {
           <article
             class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
           >
@@ -26,6 +30,7 @@
                 height="225"
                 class="object-cover w-full h-full"
                 [alt]="item.titulo"
+                [priority]="i < 4"
               />
             </div>
 
@@ -53,7 +58,19 @@
           </article>
         }
       </div>
+
+      @if (cantidadOidoVisible < enfermedadesOido.length) {
+        <div class="text-center mt-12">
+          <button
+            (click)="cargarMasOido()"
+            class="px-8 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-full hover:bg-gray-50 transition-all shadow-sm hover:shadow-md cursor-pointer"
+          >
+            Ver más enfermedades de oído 👇
+          </button>
+        </div>
+      }
     </div>
+
     <div class="mb-16 mt-16 border-t border-gray-200 pt-16">
       <div class="flex items-center gap-3 mb-8">
         <span class="text-3xl text-blue-600">🗣️</span>
@@ -241,6 +258,7 @@
         }
       </div>
     </div>
+
     <div class="mt-24">
       <div
         class="bg-blue-50 rounded-3xl p-10 md:p-16 text-center border border-blue-100 shadow-sm mx-auto max-w-5xl"
