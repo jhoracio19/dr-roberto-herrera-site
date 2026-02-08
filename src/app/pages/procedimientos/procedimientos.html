@@ -49,6 +49,7 @@
               fill
               class="object-cover w-full h-full"
               [alt]="item.titulo"
+              [priority]="$index < 4"
             />
           </div>
 
@@ -56,11 +57,9 @@
             <h3 class="text-lg font-bold text-pink-600 mb-3">
               {{ item.titulo }}
             </h3>
-
             <p class="text-xs text-gray-500 mb-4 leading-relaxed">
               {{ item.descripcion }}
             </p>
-
             <div class="bg-pink-50 rounded-lg p-3 mb-6">
               <p class="text-[10px] md:text-xs text-pink-800 font-medium leading-tight">
                 {{ item.beneficioDestacado }}
@@ -85,7 +84,6 @@
                 <span class="text-[10px] text-gray-500 font-semibold">Duración:</span>
                 <span class="text-[10px] text-gray-700">{{ item.duracion }}</span>
               </div>
-
               <div class="flex items-center gap-2">
                 <svg
                   class="w-3.5 h-3.5 text-gray-400"
@@ -103,7 +101,6 @@
                 <span class="text-[10px] text-gray-500 font-semibold">Recuperación:</span>
                 <span class="text-[10px] text-gray-700">{{ item.recuperacion }}</span>
               </div>
-
               <div class="flex items-center gap-2">
                 <svg
                   class="w-3.5 h-3.5 text-gray-400"
@@ -157,11 +154,9 @@
               <h3 class="text-lg font-bold text-pink-600 mb-3">
                 {{ item.titulo }}
               </h3>
-
               <p class="text-xs text-gray-500 mb-4 leading-relaxed">
                 {{ item.descripcion }}
               </p>
-
               <div class="bg-pink-50 rounded-lg p-3 mb-6">
                 <p class="text-[10px] md:text-xs text-pink-800 font-medium leading-tight">
                   {{ item.beneficioDestacado }}
@@ -186,7 +181,6 @@
                   <span class="text-[10px] text-gray-500 font-semibold">Duración:</span>
                   <span class="text-[10px] text-gray-700">{{ item.duracion }}</span>
                 </div>
-
                 <div class="flex items-center gap-2">
                   <svg
                     class="w-3.5 h-3.5 text-gray-400"
@@ -204,7 +198,6 @@
                   <span class="text-[10px] text-gray-500 font-semibold">Recuperación:</span>
                   <span class="text-[10px] text-gray-700">{{ item.recuperacion }}</span>
                 </div>
-
                 <div class="flex items-center gap-2">
                   <svg
                     class="w-3.5 h-3.5 text-gray-400"
@@ -233,7 +226,6 @@
       <h2 class="text-2xl font-bold text-center text-purple-800 mb-12">
         Proceso de Consulta Estética
       </h2>
-
       <div class="bg-purple-50 rounded-2xl border border-purple-100 p-8 md:p-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
           <div
@@ -251,7 +243,6 @@
               Evaluación facial y análisis de expectativas
             </p>
           </div>
-
           <div class="flex flex-col items-center text-center relative">
             <div
               class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl md:text-2xl font-bold mb-4 shadow-md z-10"
@@ -263,7 +254,6 @@
               Diseño de tratamiento específico para ti
             </p>
           </div>
-
           <div class="flex flex-col items-center text-center relative">
             <div
               class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl md:text-2xl font-bold mb-4 shadow-md z-10"
@@ -273,7 +263,6 @@
             <h3 class="text-sm md:text-base font-bold text-purple-900 mb-2">Procedimiento</h3>
             <p class="text-xs text-purple-700 leading-tight">Realización con técnicas avanzadas</p>
           </div>
-
           <div class="flex flex-col items-center text-center relative">
             <div
               class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl md:text-2xl font-bold mb-4 shadow-md z-10"
