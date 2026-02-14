@@ -1,22 +1,17 @@
 {
   "redirects": [
     {
-      "source": "/index.php",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/servicios.php",
+      "source": "/enfermedades.php",
       "destination": "/enfermedades",
       "permanent": true
     },
     {
-      "source": "/contacto.php",
-      "destination": "/#contacto",
+      "source": "/estetico.php",
+      "destination": "/cirugias",
       "permanent": true
     },
     {
-      "source": "/agendar.php",
+      "source": "/pacientes.php",
       "destination": "/",
       "permanent": true
     }
