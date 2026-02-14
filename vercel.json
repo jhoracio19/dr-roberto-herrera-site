@@ -1,6 +1,21 @@
 {
   "redirects": [
     {
+      "source": "/cirugias.php",
+      "destination": "/cirugias",
+      "permanent": true
+    },
+    {
+      "source": "/src/img/cv.pdf",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/enfermedades.php",
       "destination": "/enfermedades",
       "permanent": true
