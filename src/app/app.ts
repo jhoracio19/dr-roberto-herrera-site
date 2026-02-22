@@ -6,6 +6,7 @@ import { Navbar } from './shared/ui/navbar/navbar';
 import { FloatingWhatsapp } from './components/floating-whatsapp/floating-whatsapp';
 import { filter } from 'rxjs';
 import { Canonical } from './services/canonical';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,9 @@ export class App implements OnInit {
   private metaService = inject(Meta); // Para la descripción en Google
 
   ngOnInit(): void {
+    // Initialize Vercel Speed Insights
+    injectSpeedInsights();
+
     // --- ESTRATEGIA SEO: PALABRA CLAVE "OTORRINOLARINGÓLOGO" ---
     // Esto cambia lo que se ve en la pestaña del navegador y en el link azul de Google.
     this.titleService.setTitle('Otorrinolaringólogo en Tlaxcala | Dr. Roberto Herrera');
