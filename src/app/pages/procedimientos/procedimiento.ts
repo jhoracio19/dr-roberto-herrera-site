@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
 interface ProcedimientoEstetico {
@@ -15,7 +15,7 @@ interface ProcedimientoEstetico {
 @Component({
   selector: 'app-procedimientos',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [NgOptimizedImage],
   templateUrl: './procedimientos.html',
   styles: ``,
 })

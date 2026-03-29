@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
 // Definimos la estructura exacta de tus tarjetas
@@ -15,7 +15,7 @@ interface Cirugia {
 
 @Component({
   selector: 'app-cirugias',
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [NgOptimizedImage],
   templateUrl: './cirugias.html',
   styles: ``,
 })

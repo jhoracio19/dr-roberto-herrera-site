@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -10,7 +10,7 @@ import { JsonLd } from '../../services/json-ld';
 @Component({
   selector: 'app-home',
   standalone: true, // Agregado para Angular 17+
-  imports: [RouterLink, CommonModule, NgOptimizedImage],
+  imports: [RouterLink, NgOptimizedImage],
   templateUrl: './home.html', // Verifica si es .html o .component.html
   styles: ``,
 })
