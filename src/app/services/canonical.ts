@@ -5,6 +5,8 @@ import { DOCUMENT } from '@angular/common';
   providedIn: 'root',
 })
 export class Canonical {
+  private readonly domain = 'https://otorrinotlaxcala.com';
+
   constructor(@Inject(DOCUMENT) private dom: Document) {}
 
   updateCanonicalUrl(url?: string) {
@@ -17,8 +19,6 @@ export class Canonical {
     }
 
     element.setAttribute('rel', 'canonical');
-
-    // ✅ this.dom.location funciona tanto en servidor como en navegador
-    element.setAttribute('href', url ? url : this.dom.location.origin + this.dom.location.pathname);
+    element.setAttribute('href', url ? url : this.domain + this.dom.location.pathname);
   }
 }

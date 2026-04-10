@@ -1,6 +1,12 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.otorrinotlaxcala.com" }],
+      "destination": "https://otorrinotlaxcala.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/cirugias.php",
       "destination": "/cirugias",
       "permanent": true
