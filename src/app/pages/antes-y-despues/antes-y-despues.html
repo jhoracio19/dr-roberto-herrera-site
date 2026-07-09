@@ -1,0 +1,76 @@
+<section class="py-20 bg-white min-h-screen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20">
+      <div class="flex justify-center mb-4">
+        <div class="bg-blue-50 p-3 rounded-full">
+          <svg
+            class="w-8 h-8 text-blue-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">
+        Rinoplastias: Antes y Después
+      </h1>
+      <p class="text-sm md:text-base text-gray-500 max-w-2xl mx-auto">
+        Explora de manera interactiva los resultados de nuestros pacientes de Rinoplastia. 
+        Desliza la barra central para comparar el perfil antes de la cirugía y el resultado final.
+      </p>
+    </div>
+
+    <!-- Grid de Casos Clínicos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-24">
+      @for (caso of casosAntesDespues; track caso.titulo) {
+        <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
+          <app-image-comparison-slider
+            [beforeImage]="caso.antes"
+            [afterImage]="caso.despues"
+            [beforeStyle]="caso.antesStyle"
+            [afterStyle]="caso.despuesStyle"
+            labelBefore="Antes"
+            labelAfter="Después"
+          ></app-image-comparison-slider>
+          
+          <div class="mt-6 flex-grow">
+            <h2 class="text-xl font-bold text-gray-900 mb-2">{{ caso.titulo }}</h2>
+            <p class="text-sm text-gray-500 leading-relaxed">{{ caso.descripcion }}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Bloque de llamada a la acción -->
+    <div class="bg-blue-50 border border-blue-100 rounded-3xl p-12 text-center shadow-sm max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">
+        ¿Te gustaría programar una valoración?
+      </h2>
+      <p class="text-base text-gray-600 mb-8 max-w-2xl mx-auto">
+        Dr. Roberto Herrera analizará tu estructura facial para proponerte un plan a la medida de tus necesidades, priorizando la naturalidad y salud respiratoria.
+      </p>
+
+      <a
+        href="https://wa.me/522461567821?text=Hola%20Dr.%20Roberto,%20vi%20la%20galer%C3%ADa%20de%20antes%20y%20despu%C3%A9s%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita%20de%20valoraci%C3%B3n."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-8 py-3.5 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer"
+      >
+        Agendar Mi Valoración
+      </a>
+    </div>
+  </div>
+</section>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
+import { ImageComparisonSlider } from '../../components/image-comparison-slider/image-comparison-slider';
 
 // Asegúrate que la ruta sea correcta según donde creaste el servicio
 // Si lo llamaste 'json-ld.service.ts', la clase suele ser 'JsonLdService'
@@ -10,7 +11,7 @@ import { JsonLd } from '../../services/json-ld';
 @Component({
   selector: 'app-home',
   standalone: true, // Agregado para Angular 17+
-  imports: [RouterLink, NgOptimizedImage],
+  imports: [RouterLink, NgOptimizedImage, ImageComparisonSlider],
   templateUrl: './home.html', // Verifica si es .html o .component.html
   styles: ``,
 })
@@ -138,4 +139,7 @@ export class Home implements OnInit {
       color: 'bg-purple-600',
     },
   ];
+
+  caso1AntesStyle = { 'object-position': 'center 38%' };
+  caso1DespuesStyle = { 'object-position': 'center 46%', 'transform': 'scale(1.09) translateX(-1%)' };
 }

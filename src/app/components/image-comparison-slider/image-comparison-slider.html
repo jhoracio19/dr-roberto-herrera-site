@@ -1,0 +1,41 @@
+<div class="relative overflow-hidden select-none w-full aspect-[4/3] rounded-2xl shadow-md border border-gray-100 bg-gray-100 group">
+  <!-- Before Image (Base) -->
+  <img [src]="beforeImage" 
+       [ngStyle]="beforeStyle"
+       class="absolute inset-0 w-full h-full object-cover pointer-events-none" 
+       [alt]="labelBefore" />
+
+  <!-- After Image (Overlay clipped by sliderPosition) -->
+  <img [src]="afterImage"
+       [ngStyle]="afterStyle"
+       [style.clip-path]="'polygon(0 0, ' + sliderPosition + '% 0, ' + sliderPosition + '% 100%, 0 100%)'"
+       class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+       [alt]="labelAfter" />
+
+  <!-- Labels -->
+  <span class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-xs text-white text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-md tracking-wider uppercase pointer-events-none shadow-sm transition-opacity duration-300 group-hover:bg-black/80">
+    {{ labelBefore }}
+  </span>
+  <span class="absolute bottom-4 right-4 bg-blue-600/80 backdrop-blur-xs text-white text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-md tracking-wider uppercase pointer-events-none shadow-sm transition-opacity duration-300 group-hover:bg-blue-600/90">
+    {{ labelAfter }}
+  </span>
+
+  <!-- Split Line / Handle -->
+  <div class="absolute inset-y-0 w-[2px] bg-white cursor-ew-resize pointer-events-none shadow-[0_0_10px_rgba(0,0,0,0.3)]" [style.left.%]="sliderPosition">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-xl border border-gray-200 flex items-center justify-center text-blue-600 transition-transform duration-200 group-hover:scale-110">
+      <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 9l-3 3 3 3m8-6l3 3-3 3"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Transparent input range overlay for control -->
+  <input type="range" min="0" max="100" [value]="sliderPosition" (input)="onSliderInput($event)"
+         class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
+         aria-label="Deslizador de comparación antes y después" />
+</div>
+@if (title) {
+  <div class="mt-3 text-center">
+    <p class="text-sm font-semibold text-gray-700">{{ title }}</p>
+  </div>
+}

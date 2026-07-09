@@ -268,6 +268,55 @@
       </div>
     </div>
   </div>
+<section id="antes-despues" class="py-24 bg-gray-50 border-t border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+      <div class="mb-12 lg:mb-0">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-blue-50 text-blue-600 mb-6">
+          Resultados Reales
+        </span>
+        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-6 leading-tight">
+          Rinoplastia: Resultados de Antes y Después
+        </h2>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          Cada rostro es único. El objetivo de una rinoplastia no es cambiar tu esencia, sino mejorar la proporción, simetría y funcionalidad de tu nariz de una manera completamente natural y adaptada a tus rasgos.
+        </p>
+        <p class="text-base text-gray-500 mb-10 leading-relaxed">
+          Usa el deslizador interactivo de la imagen para comparar el cambio de perfil del antes y después en una de nuestras cirugías más recientes.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            routerLink="/antes-y-despues"
+            class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
+          >
+            Ver Galería Completa
+          </a>
+          <a
+            href="https://wa.me/522461567821?text=Hola%20Dr.%20Roberto,%20vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20más%20información%20sobre%20la%20rinoplastia."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-semibold rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all duration-200 cursor-pointer"
+          >
+            Preguntar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="w-full max-w-xl mx-auto lg:max-w-none">
+        <div class="relative p-2 bg-white rounded-3xl shadow-xl border border-gray-100">
+          <app-image-comparison-slider
+            beforeImage="assets/images/antes-despues/rino_1_antes.webp"
+            afterImage="assets/images/antes-despues/rino_1_despues.webp"
+            [beforeStyle]="caso1AntesStyle"
+            [afterStyle]="caso1DespuesStyle"
+            labelBefore="Antes de la Cirugía"
+            labelAfter="Resultado Final"
+            title="Caso Clínico 1: Rinoplastia Masculina"
+          ></app-image-comparison-slider>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="testimonios" class="py-20 bg-white border-t border-gray-100">
