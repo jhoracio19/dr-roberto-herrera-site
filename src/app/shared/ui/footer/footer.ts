@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { getAniosExperiencia } from '../../../data/experiencia';
 
 @Component({
   selector: 'app-footer',
@@ -7,4 +8,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './footer.html',
   styles: ``,
 })
-export class Footer {}
+export class Footer {
+  aniosExperiencia = getAniosExperiencia();
+}

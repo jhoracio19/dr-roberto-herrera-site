@@ -6,6 +6,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ImageComparisonSlider } from '../../components/image-comparison-slider/image-comparison-slider';
 import { FAQS } from '../../data/faqs';
+import { getAniosExperiencia } from '../../data/experiencia';
 
 const WHATSAPP_NUMBER = '522461567821';
 
@@ -49,6 +50,10 @@ export class Home implements OnInit {
     private titleService: Title,
     private metaService: Meta,
   ) {}
+
+  // Se recalcula en cada build/carga a partir del año en que el Dr. Herrera
+  // obtuvo su Cédula de Especialidad en ORL (2010), en vez de un número fijo.
+  aniosExperiencia = getAniosExperiencia();
 
   // --- FORMULARIO DE CONTACTO (envía por WhatsApp) ---
   contactForm = this.fb.group({
@@ -110,7 +115,7 @@ export class Home implements OnInit {
     });
     this.metaService.updateTag({
       property: 'og:description',
-      content: 'Cuidado especializado para tu Salud Auditiva. Más de 18 años de experiencia.',
+      content: `Cuidado especializado para tu Salud Auditiva. Más de ${this.aniosExperiencia} años de experiencia.`,
     });
     this.metaService.updateTag({
       property: 'og:image',
