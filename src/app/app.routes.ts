@@ -9,6 +9,7 @@ import { NotFound } from './pages/notfound/not-found';
 import { AntesYDespues } from './pages/antes-y-despues/antes-y-despues';
 import { AvisoPrivacidad } from './pages/aviso-privacidad/aviso-privacidad';
 import { TerminosCondiciones } from './pages/terminos-condiciones/terminos-condiciones';
+import { PreguntasFrecuentes } from './pages/preguntas-frecuentes/preguntas-frecuentes';
 
 export const routes: Routes = [
   { path: '', component: Home }, // Tu index.php
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'enfermedades', component: Enfermedades },
   { path: 'esteticos', component: Procedimientos },
   { path: 'antes-y-despues', component: AntesYDespues },
+  { path: 'preguntas-frecuentes', component: PreguntasFrecuentes },
   { path: 'creditos', component: Creditos },
   { path: 'aviso-de-privacidad', component: AvisoPrivacidad },
   { path: 'terminos-y-condiciones', component: TerminosCondiciones },
