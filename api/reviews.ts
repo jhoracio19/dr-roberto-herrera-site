@@ -25,6 +25,7 @@ interface PlaceDetailsResponse {
       text: string;
       relative_time_description: string;
       profile_photo_url: string;
+      time: number;
     }[];
   };
 }
@@ -64,10 +65,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return;
     }
 
+    // Google Place Details solo entrega hasta 5 reseñas elegidas por su propio
+    // criterio de "relevancia" (no hay forma de pedir "todas" por esta vía).
+    // Aquí al menos las ordenamos de la más reciente a la más antigua entre
+    // esas 5, para que el sitio no se quede con una reseña vieja hasta arriba.
+    const reviewsMasRecientesPrimero = [...(data.result.reviews ?? [])].sort(
+      (a, b) => b.time - a.time,
+    );
+
     const payload: ReviewsPayload = {
       rating: data.result.rating ?? null,
       totalRatings: data.result.user_ratings_total ?? null,
-      reviews: (data.result.reviews ?? []).map((r) => ({
+      reviews: reviewsMasRecientesPrimero.map((r) => ({
         author: r.author_name,
         rating: r.rating,
         text: r.text,
