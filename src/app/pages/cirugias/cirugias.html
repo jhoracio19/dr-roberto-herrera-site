@@ -34,7 +34,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      @for (item of cirugias; track item.titulo) {
+      @for (item of cirugias; track item.titulo; let i = $index) {
         <article
           class="bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1"
         >
@@ -44,6 +44,7 @@
               fill
               class="object-cover w-full h-full"
               [alt]="item.titulo"
+              [priority]="i < 3"
             />
           </div>
 
