@@ -1,24 +1,58 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ImageComparisonSlider } from '../../components/image-comparison-slider/image-comparison-slider';
+
+const WHATSAPP_NUMBER = '522461567821';
 
 @Component({
   selector: 'app-home',
   standalone: true, // Agregado para Angular 17+
-  imports: [RouterLink, NgOptimizedImage, ImageComparisonSlider],
+  imports: [RouterLink, NgOptimizedImage, ImageComparisonSlider, ReactiveFormsModule],
   templateUrl: './home.html', // Verifica si es .html o .component.html
   styles: ``,
 })
 export class Home implements OnInit {
   // Usar convención HomeComponent
+  private fb = inject(FormBuilder);
 
   // Inyectamos los servicios
   constructor(
     private titleService: Title,
     private metaService: Meta,
   ) {}
+
+  // --- FORMULARIO DE CONTACTO (envía por WhatsApp) ---
+  contactForm = this.fb.group({
+    nombre: ['', [Validators.required, Validators.minLength(2)]],
+    contacto: ['', [Validators.required, Validators.minLength(6)]],
+    motivo: ['Agendar una cita', [Validators.required]],
+    mensaje: ['', [Validators.required, Validators.minLength(10)]],
+  });
+
+  get f() {
+    return this.contactForm.controls;
+  }
+
+  enviarPorWhatsapp(): void {
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      return;
+    }
+
+    const { nombre, contacto, motivo, mensaje } = this.contactForm.value;
+    const texto =
+      `Hola Dr. Roberto, mi nombre es ${nombre}.\n` +
+      `Motivo de consulta: ${motivo}\n` +
+      `Cómo contactarme: ${contacto}\n` +
+      `Mensaje: ${mensaje}`;
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+    this.contactForm.reset({ motivo: 'Agendar una cita' });
+  }
 
   ngOnInit(): void {
     // --- 1. SEO DE PESTAÑA Y META TAGS ---
