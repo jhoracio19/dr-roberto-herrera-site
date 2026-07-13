@@ -7,6 +7,8 @@ import { Home } from './pages/home/home';
 import { Creditos } from './pages/creditos/creditos';
 import { NotFound } from './pages/notfound/not-found';
 import { AntesYDespues } from './pages/antes-y-despues/antes-y-despues';
+import { AvisoPrivacidad } from './pages/aviso-privacidad/aviso-privacidad';
+import { TerminosCondiciones } from './pages/terminos-condiciones/terminos-condiciones';
 
 export const routes: Routes = [
   { path: '', component: Home }, // Tu index.php
@@ -15,6 +17,8 @@ export const routes: Routes = [
   { path: 'esteticos', component: Procedimientos },
   { path: 'antes-y-despues', component: AntesYDespues },
   { path: 'creditos', component: Creditos },
+  { path: 'aviso-de-privacidad', component: AvisoPrivacidad },
+  { path: 'terminos-y-condiciones', component: TerminosCondiciones },
 
   { path: '**', component: NotFound }, // Si escriben algo raro, van al home
 ];

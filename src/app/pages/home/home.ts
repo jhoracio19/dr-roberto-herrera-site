@@ -4,10 +4,6 @@ import { RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ImageComparisonSlider } from '../../components/image-comparison-slider/image-comparison-slider';
 
-// Asegúrate que la ruta sea correcta según donde creaste el servicio
-// Si lo llamaste 'json-ld.service.ts', la clase suele ser 'JsonLdService'
-import { JsonLd } from '../../services/json-ld';
-
 @Component({
   selector: 'app-home',
   standalone: true, // Agregado para Angular 17+
@@ -22,7 +18,6 @@ export class Home implements OnInit {
   constructor(
     private titleService: Title,
     private metaService: Meta,
-    private jsonLd: JsonLd, // Inyección del servicio de Schema
   ) {}
 
   ngOnInit(): void {
@@ -57,42 +52,7 @@ export class Home implements OnInit {
     this.metaService.updateTag({ property: 'og:url', content: 'https://otorrinotlaxcala.com/' });
     this.metaService.updateTag({ property: 'og:type', content: 'medical.physician' });
 
-    // --- 3. SCHEMA MARKUP (JSON-LD) - ¡LO QUE FALTABA! ---
-    // Este objeto le dice a Google Maps y al Buscador quién es el doctor
-    const schemaDoctor = {
-      '@context': 'https://schema.org',
-      '@type': 'Physician',
-      name: 'Dr. Roberto Herrera',
-      image: 'https://otorrinotlaxcala.com/dr_roberto.webp',
-      description: 'Especialista en Otorrinolaringología y Cirugía de Cabeza y Cuello.',
-      medicalSpecialty: 'Otolaryngologist',
-      telephone: '+522461567821',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'G. Valle 18, Centro', // ¡PON LA DIRECCIÓN REAL DE TLAXCALA!
-        addressLocality: 'Tlaxcala de Xicohténcatl',
-        addressRegion: 'Tlax',
-        postalCode: '90000',
-        addressCountry: 'MX',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: '19.32603386167681',
-        longitude: '-98.22713470213061',
-      },
-      openingHoursSpecification: [
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '12:00',
-          closes: '18:00',
-        },
-      ],
-      priceRange: '$$$',
-    };
-
-    // Inyectamos el script invisible en el head
-    this.jsonLd.insertSchema(schemaDoctor);
+    // El schema.org Physician ya se define una sola vez en src/index.html (sitewide).
   }
 
   // --- DATOS DE RESEÑAS ---
