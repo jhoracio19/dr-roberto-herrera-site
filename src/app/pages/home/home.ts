@@ -52,7 +52,7 @@ export class Home implements OnInit {
     });
     this.metaService.updateTag({
       property: 'og:image',
-      content: 'https://otorrinotlaxcala.com/dr_roberto.jpg',
+      content: 'https://otorrinotlaxcala.com/dr_roberto.webp',
     }); // URL ABSOLUTA necesaria
     this.metaService.updateTag({ property: 'og:url', content: 'https://otorrinotlaxcala.com/' });
     this.metaService.updateTag({ property: 'og:type', content: 'medical.physician' });
@@ -63,7 +63,7 @@ export class Home implements OnInit {
       '@context': 'https://schema.org',
       '@type': 'Physician',
       name: 'Dr. Roberto Herrera',
-      image: 'https://otorrinotlaxcala.com/dr_roberto.jpg',
+      image: 'https://otorrinotlaxcala.com/dr_roberto.webp',
       description: 'Especialista en Otorrinolaringología y Cirugía de Cabeza y Cuello.',
       medicalSpecialty: 'Otolaryngologist',
       telephone: '+522461567821',
@@ -84,14 +84,8 @@ export class Home implements OnInit {
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '10:00',
-          closes: '20:00',
-        },
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: 'Saturday',
-          opens: '10:00',
-          closes: '14:00',
+          opens: '12:00',
+          closes: '18:00',
         },
       ],
       priceRange: '$$$',

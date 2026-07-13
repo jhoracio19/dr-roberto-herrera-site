@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Mapa del sitio para GoogleBot
-Sitemap: https://www.otorrinotlaxcala.com/sitemap.xml
+Sitemap: https://otorrinotlaxcala.com/sitemap.xml

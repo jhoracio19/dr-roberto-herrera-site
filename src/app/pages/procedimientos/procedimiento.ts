@@ -32,6 +32,24 @@ export class Procedimientos implements OnInit {
       content:
         'Rinoplastia, Otoplastia, Mentoplastia y más. Procedimientos estéticos faciales seguros.',
     });
+
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Cirugías Estéticas Faciales | Dr. Roberto Herrera',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content:
+        'Rinoplastia, Otoplastia, Mentoplastia y más. Procedimientos estéticos faciales seguros.',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://otorrinotlaxcala.com/assets/images/esteticos/rinoplastia.webp',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://otorrinotlaxcala.com/esteticos',
+    });
   }
 
   procedimientos: ProcedimientoEstetico[] = [

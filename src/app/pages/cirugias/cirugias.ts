@@ -32,6 +32,24 @@ export class Cirugias {
       content:
         'Procedimientos quirúrgicos modernos y seguros para padecimientos de oído, nariz y garganta.',
     });
+
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Cirugías Médicas Especializadas | Dr. Roberto Herrera',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content:
+        'Procedimientos quirúrgicos modernos y seguros para padecimientos de oído, nariz y garganta.',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://otorrinotlaxcala.com/assets/images/cirugias/cirugia-amigdalas.webp',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://otorrinotlaxcala.com/cirugias',
+    });
   }
 
   cirugias: Cirugia[] = [

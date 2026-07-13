@@ -31,6 +31,24 @@ export class AntesYDespues implements OnInit {
       content:
         'Galería de resultados reales de cirugía de nariz (rinoplastia) del Dr. Roberto Herrera. Descubre la armonía facial lograda con técnicas seguras y avanzadas.',
     });
+
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Rinoplastias Antes y Después | Dr. Roberto Herrera',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content:
+        'Galería de resultados reales de cirugía de nariz (rinoplastia) del Dr. Roberto Herrera.',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://otorrinotlaxcala.com/assets/images/antes-despues/rino_1_despues.webp',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://otorrinotlaxcala.com/antes-y-despues',
+    });
   }
 
   casosAntesDespues: CasoClinico[] = [
