@@ -5,7 +5,7 @@
         <a routerLink="/" class="block">
           <img
             src="logo.webp"
-            alt="Dr. Roberto Herrera"
+            alt="Dr. Roberto Herrera - Otorrinolaringólogo en Tlaxcala"
             class="h-16 w-auto object-contain brightness-0 invert opacity-90"
           />
         </a>
@@ -28,20 +28,42 @@
           </li>
           <li>
             <a
-              routerLink="/"
-              fragment="servicios"
+              routerLink="/enfermedades"
               class="text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium"
             >
-              Servicios
+              Enfermedades
             </a>
           </li>
           <li>
             <a
-              routerLink="/"
-              fragment="doctor"
+              routerLink="/cirugias"
               class="text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium"
             >
-              Acerca del Doctor
+              Cirugías
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/esteticos"
+              class="text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium"
+            >
+              Procedimientos Estéticos
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/antes-y-despues"
+              class="text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium"
+            >
+              Antes y Después
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/sobre-el-doctor"
+              class="text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium"
+            >
+              Sobre el Doctor
             </a>
           </li>
           <li>
@@ -50,6 +72,14 @@
               class="text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium"
             >
               Preguntas Frecuentes
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/contacto"
+              class="text-slate-400 hover:text-blue-400 transition-colors text-sm font-medium"
+            >
+              Contacto
             </a>
           </li>
           <li>
@@ -69,7 +99,7 @@
         <h3 class="text-lg font-bold mb-6 text-slate-100">Síguenos</h3>
         <div class="flex space-x-5">
           <a
-            href="https://www.facebook.com/otorrinotlaxcala/?locale=es_LA"
+            href="https://www.facebook.com/otorrinotlaxcala/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook del Dr. Roberto Herrera"
@@ -83,7 +113,7 @@
           </a>
 
           <a
-            href="https://www.instagram.com/otorrino_robertoherrera?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            href="https://www.instagram.com/otorrino_robertoherrera/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram del Dr. Roberto Herrera"
@@ -96,7 +126,7 @@
             </svg>
           </a>
           <a
-            href="https://www.doctoralia.com.mx/roberto-oscar-herrera-mendoza/otorrinolaringologo/tlaxcala?fbclid=IwY2xjawP11PxleHRuA2FlbQIxMABicmlkETFCWDBzSTJqcHFpZjZsZTBMc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHj76bvCRey_URHA3-7jkL_ZOJJpGFs0jPupk3BcmlSZi9wTfhnw3yeCNMdjU_aem_8snGO8PBnffPqh9C3wCaRQ"
+            href="https://www.doctoralia.com.mx/roberto-oscar-herrera-mendoza/otorrinolaringologo/tlaxcala"
             target="_blank"
             rel="noopener noreferrer"
             class="text-gray-400 hover:text-[#00D3A9] transition-colors duration-300"
@@ -173,6 +203,12 @@
           </li>
           <li class="flex items-start">
             <span class="block">
+              <span class="block text-slate-100 font-medium mb-1">Horario:</span>
+              Lunes a Viernes · 12:00 - 18:00 h
+            </span>
+          </li>
+          <li class="flex items-start">
+            <span class="block">
               <span class="block text-slate-100 font-medium mb-1">Aviso de Publicidad COFEPRIS:</span>
               2629012002A00032, 2629012002A00033
             </span>
@@ -184,7 +220,9 @@
     <div
       class="border-t border-slate-900 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center"
     >
-      <p class="text-slate-500 text-sm">Todos los derechos Reservados 2026©</p>
+      <p class="text-slate-500 text-sm">
+        © {{ anioActual }} Dr. Roberto Herrera. Todos los derechos reservados.
+      </p>
 
       <p class="text-slate-500 text-sm">
         Desarrollado por

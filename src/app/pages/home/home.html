@@ -183,7 +183,7 @@
           routerLink="/esteticos"
           class="mt-auto inline-flex items-center px-6 py-2.5 border border-gray-300 shadow-sm text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
         >
-          Ver Procesos Estéticos
+          Ver Procedimientos Estéticos
         </a>
       </div>
     </div>
@@ -456,8 +456,10 @@
               </div>
               <div class="ml-auto">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                  alt="G"
+                  src="assets/images/google-logo.svg"
+                  alt="Reseña de Google"
+                  width="20"
+                  height="20"
                   class="w-5 h-5 opacity-50"
                 />
               </div>
@@ -553,11 +555,16 @@
             </svg>
           </button>
 
-          @if (openFaqIndex() === i) {
-            <div class="px-6 pb-5 -mt-1">
-              <p class="text-sm text-gray-600 leading-relaxed">{{ faq.respuesta }}</p>
+          <div
+            class="grid transition-[grid-template-rows] duration-300 ease-in-out"
+            [class]="openFaqIndex() === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
+          >
+            <div class="overflow-hidden">
+              <div class="px-6 pb-5 -mt-1">
+                <p class="text-sm text-gray-600 leading-relaxed">{{ faq.respuesta }}</p>
+              </div>
             </div>
-          }
+          </div>
         </div>
       }
     </div>

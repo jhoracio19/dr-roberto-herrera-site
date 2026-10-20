@@ -1,10 +1,12 @@
 <section class="py-20 bg-gray-50 min-h-screen">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <app-breadcrumbs class="block mb-8" [items]="breadcrumbItems"></app-breadcrumbs>
+
     <div class="text-center mb-16">
       <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">Enfermedades Comunes</h1>
       <p class="text-lg text-gray-500 max-w-2xl mx-auto">
-        Conoce las patologías más frecuentes del oído, garganta y nariz con explicaciones claras y
-        síntomas principales.
+        Conoce las patologías más frecuentes del oído, garganta y nariz que atendemos en Tlaxcala,
+        con explicaciones claras y síntomas principales.
       </p>
       <p class="text-xs text-gray-400 max-w-2xl mx-auto mt-4">
         Esta información es de carácter divulgativo y no sustituye una consulta médica
@@ -19,12 +21,9 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        @for (
-          item of enfermedadesOido | slice: 0 : cantidadOidoVisible;
-          track item.titulo;
-          let i = $index
-        ) {
+        @for (item of enfermedadesOido; track item.titulo; let i = $index) {
           <article
+            [class.hidden]="!mostrarTodasOido && i >= limiteOidoInicial"
             class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
           >
             <div class="relative aspect-video bg-gray-100">
@@ -57,22 +56,36 @@
                     </li>
                   }
                 </ul>
+                @if (item.cirugiaRelacionada) {
+                  <a
+                    [routerLink]="item.cirugiaRelacionada.url"
+                    class="inline-flex items-center mt-4 text-xs font-bold text-blue-600 hover:text-blue-700 hover:underline"
+                  >
+                    Tratamiento quirúrgico: {{ item.cirugiaRelacionada.nombre }} →
+                  </a>
+                }
+                @if (item.detalleUrl) {
+                  <a
+                    [routerLink]="item.detalleUrl"
+                    class="inline-flex items-center mt-4 text-xs font-bold text-blue-600 hover:text-blue-700 hover:underline"
+                  >
+                    Más información sobre {{ item.titulo }} →
+                  </a>
+                }
               </div>
             </div>
           </article>
         }
       </div>
 
-      @if (cantidadOidoVisible < enfermedadesOido.length) {
-        <div class="text-center mt-12">
-          <button
-            (click)="cargarMasOido()"
-            class="px-8 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-full hover:bg-gray-50 transition-all shadow-sm hover:shadow-md cursor-pointer"
-          >
-            Ver más enfermedades de oído 👇
-          </button>
-        </div>
-      }
+      <div class="text-center mt-12">
+        <button
+          (click)="alternarOido()"
+          class="px-8 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-full hover:bg-gray-50 transition-all shadow-sm hover:shadow-md cursor-pointer"
+        >
+          {{ mostrarTodasOido ? 'Ver menos enfermedades de oído 👆' : 'Ver más enfermedades de oído 👇' }}
+        </button>
+      </div>
     </div>
 
     <div class="mb-16 mt-16 border-t border-gray-200 pt-16">
@@ -115,6 +128,22 @@
                     </li>
                   }
                 </ul>
+                @if (item.cirugiaRelacionada) {
+                  <a
+                    [routerLink]="item.cirugiaRelacionada.url"
+                    class="inline-flex items-center mt-4 text-xs font-bold text-blue-600 hover:text-blue-700 hover:underline"
+                  >
+                    Tratamiento quirúrgico: {{ item.cirugiaRelacionada.nombre }} →
+                  </a>
+                }
+                @if (item.detalleUrl) {
+                  <a
+                    [routerLink]="item.detalleUrl"
+                    class="inline-flex items-center mt-4 text-xs font-bold text-blue-600 hover:text-blue-700 hover:underline"
+                  >
+                    Más información sobre {{ item.titulo }} →
+                  </a>
+                }
               </div>
             </div>
           </article>
@@ -162,6 +191,22 @@
                     </li>
                   }
                 </ul>
+                @if (item.cirugiaRelacionada) {
+                  <a
+                    [routerLink]="item.cirugiaRelacionada.url"
+                    class="inline-flex items-center mt-4 text-xs font-bold text-blue-600 hover:text-blue-700 hover:underline"
+                  >
+                    Tratamiento quirúrgico: {{ item.cirugiaRelacionada.nombre }} →
+                  </a>
+                }
+                @if (item.detalleUrl) {
+                  <a
+                    [routerLink]="item.detalleUrl"
+                    class="inline-flex items-center mt-4 text-xs font-bold text-blue-600 hover:text-blue-700 hover:underline"
+                  >
+                    Más información sobre {{ item.titulo }} →
+                  </a>
+                }
               </div>
             </div>
           </article>

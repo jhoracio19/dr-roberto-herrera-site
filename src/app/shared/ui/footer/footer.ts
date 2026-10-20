@@ -10,4 +10,5 @@ import { getAniosExperiencia } from '../../../data/experiencia';
 })
 export class Footer {
   aniosExperiencia = getAniosExperiencia();
+  anioActual = new Date().getFullYear();
 }

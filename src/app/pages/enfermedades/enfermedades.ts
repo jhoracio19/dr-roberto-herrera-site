@@ -1,25 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+import { Breadcrumbs, BreadcrumbItem } from '../../shared/ui/breadcrumbs/breadcrumbs';
 
 interface Enfermedad {
   titulo: string;
   descripcion: string;
   sintomas: string[];
   imagen: string;
+  cirugiaRelacionada?: { nombre: string; url: string };
+  detalleUrl?: string;
 }
 
 @Component({
   selector: 'app-enfermedades',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, RouterLink, Breadcrumbs],
   templateUrl: './enfermedades.html',
   styles: ``,
 })
 export class Enfermedades implements OnInit {
+  breadcrumbItems: BreadcrumbItem[] = [{ label: 'Inicio', url: '/' }, { label: 'Enfermedades' }];
+
   // CONTROL DE VISIBILIDAD
   // Empezamos mostrando solo 4 tarjetas de oído (la primera fila en Desktop)
-  cantidadOidoVisible = 4;
+  readonly limiteOidoInicial = 4;
+  mostrarTodasOido = false;
 
   constructor(
     private title: Title,
@@ -28,7 +35,7 @@ export class Enfermedades implements OnInit {
 
   ngOnInit(): void {
     // 1. Título para Google
-    this.title.setTitle('Enfermedades de Oído, Nariz y Garganta | Dr. Roberto Herrera');
+    this.title.setTitle('Enfermedades de Oído, Nariz y Garganta en Tlaxcala | Dr. Roberto Herrera');
 
     // 2. Descripción para Google
     this.meta.updateTag({
@@ -56,9 +63,9 @@ export class Enfermedades implements OnInit {
     });
   }
 
-  // FUNCIÓN PARA CARGAR MÁS
-  cargarMasOido() {
-    this.cantidadOidoVisible = this.enfermedadesOido.length; // Muestra todas
+  // FUNCIÓN PARA MOSTRAR MÁS O MENOS
+  alternarOido() {
+    this.mostrarTodasOido = !this.mostrarTodasOido;
   }
 
   // DATOS
@@ -109,6 +116,7 @@ export class Enfermedades implements OnInit {
         'Infección súbita del oído medio, frecuente en niños, generalmente causada por bacterias o virus.',
       sintomas: ['Dolor intenso de oído', 'Fiebre', 'Irritabilidad', 'Secreción del oído'],
       imagen: 'assets/images/enfermedades/otitis-media-aguda.webp',
+      detalleUrl: '/enfermedades/otitis-media',
     },
     {
       titulo: 'Otitis media crónica',
@@ -120,6 +128,7 @@ export class Enfermedades implements OnInit {
         'Sensación de presión en el oído',
       ],
       imagen: 'assets/images/enfermedades/otitis-media-cronica.webp',
+      detalleUrl: '/enfermedades/otitis-media',
     },
     {
       titulo: 'Otitis del nadador',
@@ -164,6 +173,7 @@ export class Enfermedades implements OnInit {
         'Trastorno del oído interno que provoca mareos intensos al mover la cabeza en ciertas posiciones.',
       sintomas: ['Mareos breves pero intensos', 'Náuseas', 'Pérdida de equilibrio'],
       imagen: 'assets/images/enfermedades/vertigo.webp',
+      detalleUrl: '/enfermedades/vertigo',
     },
     {
       titulo: 'Síndrome de Ménière',
@@ -243,6 +253,7 @@ export class Enfermedades implements OnInit {
         'Puntos blancos en las amígdalas',
       ],
       imagen: 'assets/images/enfermedades/calculos.webp',
+      cirugiaRelacionada: { nombre: 'Cirugía de Amígdalas (Amigdalectomía)', url: '/cirugias/cirugia-de-amigdalas' },
     },
     {
       titulo: 'Retiro de cuerpo extraño',
@@ -267,6 +278,8 @@ export class Enfermedades implements OnInit {
         'Cansancio al despertar',
       ],
       imagen: 'assets/images/enfermedades/apnea.webp',
+      cirugiaRelacionada: { nombre: 'Cirugía de Uvulectomía', url: '/cirugias' },
+      detalleUrl: '/enfermedades/apnea-del-sueno',
     },
   ];
 
@@ -282,6 +295,7 @@ export class Enfermedades implements OnInit {
         'Infecciones sinusales recurrentes',
       ],
       imagen: 'assets/images/enfermedades/desviacion.webp',
+      cirugiaRelacionada: { nombre: 'Septumplastía (septoplastia)', url: '/cirugias/septumplastia' },
     },
     {
       titulo: 'Epistaxis (sangrado nasal)',
@@ -318,6 +332,7 @@ export class Enfermedades implements OnInit {
         'Secreción nasal acuosa',
       ],
       imagen: 'assets/images/enfermedades/rinitis.webp',
+      cirugiaRelacionada: { nombre: 'Turbinoplastia', url: '/cirugias' },
     },
     {
       titulo: 'Sinusitis',
@@ -330,6 +345,7 @@ export class Enfermedades implements OnInit {
         'Congestión persistente',
       ],
       imagen: 'assets/images/enfermedades/sinusitis.webp',
+      detalleUrl: '/enfermedades/sinusitis',
     },
     {
       titulo: 'Tumores nasales',
@@ -371,7 +387,7 @@ export class Enfermedades implements OnInit {
       imagen: 'assets/images/enfermedades/perdida.webp',
     },
     {
-      titulo: 'Pólipos y nódulos de cuerdas bucales',
+      titulo: 'Pólipos y nódulos de cuerdas vocales',
       descripcion:
         'Crecimientos benignos en las cuerdas vocales asociados al sobreuso de la voz o irritación crónica.',
       sintomas: [

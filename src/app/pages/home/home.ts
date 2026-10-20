@@ -102,12 +102,6 @@ export class Home implements OnInit {
         'Dr. Roberto Herrera, especialista certificado en otorrinolaringología en Tlaxcala. Tratamientos para oídos, nariz y garganta. ¡Agenda tu cita hoy!',
     });
 
-    this.metaService.updateTag({
-      name: 'keywords',
-      content:
-        'Otorrino Tlaxcala, Dr Roberto Herrera, Oídos, Nariz, Garganta, Audiología, Chiautempan',
-    });
-
     // --- 2. OPEN GRAPH (WhatsApp / Facebook) ---
     this.metaService.updateTag({
       property: 'og:title',
@@ -122,7 +116,12 @@ export class Home implements OnInit {
       content: 'https://otorrinotlaxcala.com/dr_roberto.webp',
     }); // URL ABSOLUTA necesaria
     this.metaService.updateTag({ property: 'og:url', content: 'https://otorrinotlaxcala.com/' });
-    this.metaService.updateTag({ property: 'og:type', content: 'medical.physician' });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:locale', content: 'es_MX' });
+    this.metaService.updateTag({
+      property: 'og:site_name',
+      content: 'Dr. Roberto Herrera — Otorrinolaringólogo en Tlaxcala',
+    });
 
     // El schema.org Physician ya se define una sola vez en src/index.html (sitewide).
   }

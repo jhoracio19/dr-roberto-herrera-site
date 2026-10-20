@@ -16,8 +16,13 @@ export class Creditos {
     this.title.setTitle('Créditos de Imágenes | Dr. Roberto Herrera');
 
     // 🛑 IMPORTANTE: Esto le dice a Google:
-    // "No indexes esta página en el buscador y no sigas estos enlaces".
+    // "No indexes esta página en el buscador, pero sí sigue estos enlaces".
     // Así cumples la ley sin perder autoridad SEO.
-    this.meta.addTag({ name: 'robots', content: 'noindex, nofollow' });
+    this.meta.updateTag({ name: 'robots', content: 'noindex, follow' });
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Créditos y atribuciones de las imágenes utilizadas en el sitio del Dr. Roberto Herrera, otorrinolaringólogo en Tlaxcala.',
+    });
   }
 }

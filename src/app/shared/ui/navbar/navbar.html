@@ -3,9 +3,19 @@
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
-      <div class="flex-shrink-0 flex items-center cursor-pointer" routerLink="/">
-        <img class="h-12 w-auto object-contain" src="logo.webp" alt="Logo Dr. Otorrino" />
-      </div>
+      <a
+        routerLink="/"
+        aria-label="Inicio - Dr. Roberto Herrera"
+        class="flex-shrink-0 flex items-center cursor-pointer"
+      >
+        <img
+          class="h-12 w-auto object-contain"
+          src="logo.webp"
+          alt="Dr. Roberto Herrera - Otorrinolaringólogo en Tlaxcala"
+          width="800"
+          height="381"
+        />
+      </a>
 
       <div class="hidden md:flex space-x-8 items-center">
         <a
@@ -79,12 +89,12 @@
         </div>
 
         <a
-          routerLink="/"
-          fragment="doctor"
+          routerLink="/sobre-el-doctor"
+          routerLinkActive="text-blue-600"
           (click)="closeMenu()"
           class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 cursor-pointer"
         >
-          Acerca del Doctor
+          Sobre el Doctor
         </a>
 
         <a
@@ -111,12 +121,12 @@
           (click)="closeMenu()"
           class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 cursor-pointer"
         >
-          FAQ
+          Preguntas Frecuentes
         </a>
 
         <a
-          routerLink="/"
-          fragment="contacto"
+          routerLink="/contacto"
+          routerLinkActive="text-blue-600"
           (click)="closeMenu()"
           class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 cursor-pointer"
         >
@@ -224,12 +234,12 @@
           }
         </div>
         <a
-          routerLink="/"
-          fragment="doctor"
+          routerLink="/sobre-el-doctor"
+          routerLinkActive="text-blue-600"
           (click)="closeMenu()"
           class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 cursor-pointer"
         >
-          Acerca del Doctor
+          Sobre el Doctor
         </a>
         <a
           routerLink="/"
@@ -248,8 +258,8 @@
           Antes y Después
         </a>
         <a
-          routerLink="/"
-          fragment="contacto"
+          routerLink="/contacto"
+          routerLinkActive="text-blue-600"
           (click)="closeMenu()"
           class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 cursor-pointer"
         >

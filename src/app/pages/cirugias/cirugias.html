@@ -1,13 +1,15 @@
 <section class="py-20 bg-gray-50 min-h-screen">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <app-breadcrumbs class="block mb-8" [items]="breadcrumbItems"></app-breadcrumbs>
+
     <div class="text-center mb-12 animate-fade-in-up">
       <div class="flex justify-center items-center gap-2 mb-2">
         <span class="text-blue-600 text-2xl">🩺</span>
         <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Cirugías Médicas</h1>
       </div>
       <p class="text-gray-500 max-w-2xl mx-auto">
-        Procedimientos quirúrgicos especializados realizados por nuestro equipo médico con técnicas
-        modernas y seguras.
+        Procedimientos quirúrgicos especializados realizados en Tlaxcala por nuestro equipo médico
+        con técnicas modernas y seguras.
       </p>
     </div>
 
@@ -114,6 +116,15 @@
               >
                 Anestesia: {{ item.anestesia }}
               </div>
+
+              @if (item.detalleUrl) {
+                <a
+                  [routerLink]="item.detalleUrl"
+                  class="inline-flex items-center mt-4 text-xs font-bold text-blue-600 hover:text-blue-700 hover:underline"
+                >
+                  Más información sobre {{ item.titulo }} →
+                </a>
+              }
             </div>
           </div>
         </article>
@@ -253,6 +264,23 @@
       >
         Agendar Consulta
       </a>
+
+      <p class="mt-6">
+        <a
+          routerLink="/antes-y-despues"
+          class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-900 hover:underline transition-colors"
+        >
+          Resultados de rinoplastia: Antes y Después
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </a>
+      </p>
     </div>
   </div>
 </section>

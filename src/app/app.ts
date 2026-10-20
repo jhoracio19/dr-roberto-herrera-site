@@ -1,4 +1,5 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { Footer } from './shared/ui/footer/footer';
@@ -18,14 +19,17 @@ import { inject as injectAnalytics } from '@vercel/analytics'; // 👈 agrega es
 export class App implements OnInit {
   protected readonly title = signal('Otorrinolaringólogo en Tlaxcala | Dr. Roberto Herrera');
 
+  private platformId = inject(PLATFORM_ID);
   private router = inject(Router);
   private canonicalService = inject(Canonical);
   private titleService = inject(Title);
   private metaService = inject(Meta);
 
   ngOnInit(): void {
-    injectSpeedInsights();
-    injectAnalytics(); // 👈 agrega esto
+    if (isPlatformBrowser(this.platformId)) {
+      injectSpeedInsights();
+      injectAnalytics(); // 👈 agrega esto
+    }
 
     this.titleService.setTitle('Otorrinolaringólogo en Tlaxcala | Dr. Roberto Herrera');
     this.metaService.updateTag({

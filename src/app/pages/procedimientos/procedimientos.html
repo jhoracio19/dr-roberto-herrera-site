@@ -1,5 +1,7 @@
 <section class="py-20 bg-white min-h-screen">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <app-breadcrumbs class="block mb-8" [items]="breadcrumbItems"></app-breadcrumbs>
+
     <div class="text-center mb-20">
       <div class="flex justify-center mb-4">
         <div class="bg-purple-100 p-3 rounded-full">
@@ -22,8 +24,8 @@
         Procedimientos Estéticos
       </h1>
       <p class="text-sm md:text-base text-gray-500 max-w-2xl mx-auto">
-        Tratamientos estéticos faciales avanzados para realzar tu belleza natural con técnicas
-        seguras y resultados excepcionales.
+        Tratamientos estéticos faciales avanzados en Tlaxcala para realzar tu belleza natural con
+        técnicas seguras y resultados excepcionales.
       </p>
     </div>
 
@@ -57,7 +59,7 @@
           />
         </svg>
       </div>
-      <h2 class="text-xl font-bold text-gray-900">Cirugías Estéticas Faciales</h2>
+      <h2 class="text-xl font-bold text-gray-900">Procedimientos Estéticos Faciales</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -140,6 +142,15 @@
                 <span class="text-[10px] text-gray-500 font-semibold">Resultados:</span>
                 <span class="text-[10px] text-gray-700">{{ item.resultados }}</span>
               </div>
+
+              @if (item.detalleUrl) {
+                <a
+                  [routerLink]="item.detalleUrl"
+                  class="inline-flex items-center pt-2 text-xs font-bold text-pink-600 hover:text-pink-700 hover:underline"
+                >
+                  Más información sobre {{ item.titulo }} →
+                </a>
+              }
             </div>
           </div>
         </article>
@@ -241,6 +252,23 @@
             </div>
           </article>
         }
+      </div>
+
+      <div class="mt-12 text-center">
+        <a
+          routerLink="/antes-y-despues"
+          class="inline-flex items-center gap-2 px-6 py-3 border border-purple-200 rounded-lg text-sm font-semibold text-purple-700 hover:bg-purple-50 hover:border-purple-300 transition-all"
+        >
+          Ver resultados reales en Antes y Después
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </a>
       </div>
     </div>
 

@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
 # Mapa del sitio para GoogleBot
 Sitemap: https://otorrinotlaxcala.com/sitemap.xml

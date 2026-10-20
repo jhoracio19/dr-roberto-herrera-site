@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+import { Breadcrumbs, BreadcrumbItem } from '../../shared/ui/breadcrumbs/breadcrumbs';
 
 interface ProcedimientoEstetico {
   titulo: string;
@@ -10,23 +12,29 @@ interface ProcedimientoEstetico {
   recuperacion: string;
   resultados: string;
   imagen: string;
+  detalleUrl?: string;
 }
 
 @Component({
   selector: 'app-procedimientos',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, RouterLink, Breadcrumbs],
   templateUrl: './procedimientos.html',
   styles: ``,
 })
 export class Procedimientos implements OnInit {
+  breadcrumbItems: BreadcrumbItem[] = [
+    { label: 'Inicio', url: '/' },
+    { label: 'Procedimientos Estéticos' },
+  ];
+
   constructor(
     private title: Title,
     private meta: Meta,
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Cirugías Estéticas Faciales | Dr. Roberto Herrera');
+    this.title.setTitle('Procedimientos Estéticos Faciales en Tlaxcala | Dr. Roberto Herrera');
     this.meta.updateTag({
       name: 'description',
       content:
@@ -35,7 +43,7 @@ export class Procedimientos implements OnInit {
 
     this.meta.updateTag({
       property: 'og:title',
-      content: 'Cirugías Estéticas Faciales | Dr. Roberto Herrera',
+      content: 'Procedimientos Estéticos Faciales en Tlaxcala | Dr. Roberto Herrera',
     });
     this.meta.updateTag({
       property: 'og:description',
@@ -63,6 +71,7 @@ export class Procedimientos implements OnInit {
       recuperacion: '2-3 semanas',
       resultados: 'Definitivos en 6-12 meses',
       imagen: 'assets/images/esteticos/rinoplastia.webp',
+      detalleUrl: '/esteticos/rinoplastia',
     },
     {
       titulo: 'Otoplastia',

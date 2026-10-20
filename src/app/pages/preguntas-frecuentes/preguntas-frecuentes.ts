@@ -1,13 +1,19 @@
-import { Component, DOCUMENT, OnInit, inject, signal } from '@angular/core';
+import { Component, DOCUMENT, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { FAQS } from '../../data/faqs';
+import { Breadcrumbs, BreadcrumbItem } from '../../shared/ui/breadcrumbs/breadcrumbs';
 
 @Component({
   selector: 'app-preguntas-frecuentes',
-  imports: [],
+  imports: [Breadcrumbs],
   templateUrl: './preguntas-frecuentes.html',
 })
-export class PreguntasFrecuentes implements OnInit {
+export class PreguntasFrecuentes implements OnInit, OnDestroy {
+  breadcrumbItems: BreadcrumbItem[] = [
+    { label: 'Inicio', url: '/' },
+    { label: 'Preguntas Frecuentes' },
+  ];
+
   private title = inject(Title);
   private meta = inject(Meta);
   private document = inject(DOCUMENT);
@@ -21,7 +27,7 @@ export class PreguntasFrecuentes implements OnInit {
   faqs = FAQS;
 
   ngOnInit(): void {
-    this.title.setTitle('Preguntas Frecuentes | Dr. Roberto Herrera');
+    this.title.setTitle('Preguntas Frecuentes | Otorrino en Tlaxcala | Dr. Roberto Herrera');
     this.meta.updateTag({
       name: 'description',
       content:
@@ -54,9 +60,16 @@ export class PreguntasFrecuentes implements OnInit {
       })),
     };
 
-    const script = this.document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(schema);
-    this.document.head.appendChild(script);
+    if (!this.document.getElementById('faq-schema')) {
+      const script = this.document.createElement('script');
+      script.id = 'faq-schema';
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(schema);
+      this.document.head.appendChild(script);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.document.getElementById('faq-schema')?.remove();
   }
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+import { Breadcrumbs, BreadcrumbItem } from '../../shared/ui/breadcrumbs/breadcrumbs';
 
 // Definimos la estructura exacta de tus tarjetas
 interface Cirugia {
@@ -11,31 +13,37 @@ interface Cirugia {
   recuperacion: string;
   anestesia: string;
   imagen: string;
+  detalleUrl?: string;
 }
 
 @Component({
   selector: 'app-cirugias',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, RouterLink, Breadcrumbs],
   templateUrl: './cirugias.html',
   styles: ``,
 })
 export class Cirugias {
+  breadcrumbItems: BreadcrumbItem[] = [
+    { label: 'Inicio', url: '/' },
+    { label: 'Cirugías' },
+  ];
+
   constructor(
     private title: Title,
     private meta: Meta,
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Cirugías Médicas Especializadas | Dr. Roberto Herrera');
+    this.title.setTitle('Cirugías de Oído, Nariz y Garganta en Tlaxcala | Dr. Roberto Herrera');
     this.meta.updateTag({
       name: 'description',
       content:
-        'Procedimientos quirúrgicos modernos y seguros para padecimientos de oído, nariz y garganta.',
+        'Procedimientos quirúrgicos modernos y seguros para padecimientos de oído, nariz y garganta en Tlaxcala.',
     });
 
     this.meta.updateTag({
       property: 'og:title',
-      content: 'Cirugías Médicas Especializadas | Dr. Roberto Herrera',
+      content: 'Cirugías de Oído, Nariz y Garganta en Tlaxcala | Dr. Roberto Herrera',
     });
     this.meta.updateTag({
       property: 'og:description',
@@ -62,6 +70,18 @@ export class Cirugias {
       recuperacion: '7-14 días',
       anestesia: 'General',
       imagen: 'assets/images/cirugias/cirugia-amigdalas.webp',
+      detalleUrl: '/cirugias/cirugia-de-amigdalas',
+    },
+    {
+      titulo: 'Cirugía de Adenoides (Adenoidectomía)',
+      descripcion:
+        'Extirpación de las adenoides cuando crecen en exceso y obstruyen la respiración, frecuente en niños con respiración bucal, ronquido u otitis repetidas.',
+      funcion: 'Mejorar la respiración nasal y reducir infecciones de oído recurrentes.',
+      duracion: '20-30 minutos',
+      recuperacion: '5-7 días',
+      anestesia: 'General',
+      imagen: 'assets/images/cirugias/cirugia-adenoides.webp',
+      detalleUrl: '/cirugias/cirugia-de-adenoides',
     },
     {
       titulo: 'Cirugía de Uvulectomía',
@@ -84,7 +104,7 @@ export class Cirugias {
       imagen: 'assets/images/cirugias/turbinoplastia.webp',
     },
     {
-      titulo: 'Septumplastía',
+      titulo: 'Septumplastía (septoplastia)',
       descripcion:
         'Cirugía para corregir el tabique nasal desviado, facilitando una respiración nasal adecuada.',
       funcion: 'Mejorar el flujo de aire nasal y reducir síntomas respiratorios.',
@@ -92,11 +112,12 @@ export class Cirugias {
       recuperacion: '7-10 días',
       anestesia: 'General',
       imagen: 'assets/images/cirugias/septumplastia.webp',
+      detalleUrl: '/cirugias/septumplastia',
     },
     {
       titulo: 'Rinoseptumplastía',
       descripcion:
-        'Combinación de septumplastía y rinoplastía para corregir el tabique y modificar la estructura estética de la nariz.',
+        'Combinación de septumplastía y rinoplastía: cirugía de tabique desviado que además modifica la estructura estética de la nariz.',
       funcion: 'Mejorar la respiración nasal y la apariencia estética de la nariz.',
       duracion: '90-120 minutos',
       recuperacion: '10-15 días',

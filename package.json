@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "node -e \"require('fs').copyFileSync('dist/web-otorrino/browser/404/index.html', 'dist/web-otorrino/browser/404.html')\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:web-otorrino": "node dist/web-otorrino/server/server.mjs"
