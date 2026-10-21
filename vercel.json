@@ -2,43 +2,22 @@
   "framework": null,
   "buildCommand": "npm run build",
   "outputDirectory": "dist/web-otorrino/browser",
-  "trailingSlash": false,
-  "redirects": [
+  "routes": [
+    { "src": "^/(.*)/$", "headers": { "Location": "/$1" }, "status": 308 },
     {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.otorrinotlaxcala.com" }],
-      "destination": "https://otorrinotlaxcala.com/:path*",
-      "permanent": true
+      "src": "^(?:/(.*))?$",
+      "headers": { "Location": "https://otorrinotlaxcala.com/$1" },
+      "status": 308,
+      "has": [{ "type": "host", "value": "www.otorrinotlaxcala.com" }]
     },
-    {
-      "source": "/cirugias.php",
-      "destination": "/cirugias",
-      "permanent": true
-    },
-    {
-      "source": "/src/img/cv.pdf",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/index.php",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/enfermedades.php",
-      "destination": "/enfermedades",
-      "permanent": true
-    },
-    {
-      "source": "/estetico.php",
-      "destination": "/esteticos",
-      "permanent": true
-    },
-    {
-      "source": "/pacientes.php",
-      "destination": "/",
-      "permanent": true
-    }
+    { "src": "^/cirugias\\.php$", "headers": { "Location": "/cirugias" }, "status": 308 },
+    { "src": "^/src/img/cv\\.pdf$", "headers": { "Location": "/" }, "status": 308 },
+    { "src": "^/index\\.php$", "headers": { "Location": "/" }, "status": 308 },
+    { "src": "^/enfermedades\\.php$", "headers": { "Location": "/enfermedades" }, "status": 308 },
+    { "src": "^/estetico\\.php$", "headers": { "Location": "/esteticos" }, "status": 308 },
+    { "src": "^/pacientes\\.php$", "headers": { "Location": "/" }, "status": 308 },
+    { "handle": "filesystem" },
+    { "src": "^/api(/.*)?$", "status": 404 },
+    { "src": "^/(.*)$", "status": 404, "dest": "/404.html" }
   ]
 }
