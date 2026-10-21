@@ -82,8 +82,8 @@ export class AntesYDespues implements OnInit {
       descripcion: 'Refinamiento de dorso y punta nasal con enfoque en la simetría frontal, logrando una nariz más delgada y definida que armoniza con los rasgos faciales.',
       antes: 'assets/images/antes-despues/rino_3_despues.webp',
       despues: 'assets/images/antes-despues/rino_3_antes.webp',
-      antesStyle: { 'object-position': 'center 52%' },
-      despuesStyle: { 'object-position': 'center 62%' }
+      antesStyle: { 'object-position': 'center 54%', 'transform': 'scale(1.1)' },
+      despuesStyle: { 'object-position': 'center 68%' }
     },
     {
       titulo: 'Rinoplastia - Caso 3 (Femenino) · Vista ¾ izquierda',
