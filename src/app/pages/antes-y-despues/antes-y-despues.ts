@@ -58,6 +58,8 @@ export class AntesYDespues implements OnInit {
     });
   }
 
+  // OJO: el slider pinta `despues` en el lado izquierdo (etiqueta "Antes") y
+  // `antes` en el derecho (etiqueta "Después"), por eso los archivos van cruzados.
   casosAntesDespues: CasoClinico[] = [
     {
       titulo: 'Rinoplastia - Caso 1 (Masculino)',
@@ -78,50 +80,50 @@ export class AntesYDespues implements OnInit {
     {
       titulo: 'Rinoplastia - Caso 3 (Femenino) · Vista frontal',
       descripcion: 'Refinamiento de dorso y punta nasal con enfoque en la simetría frontal, logrando una nariz más delgada y definida que armoniza con los rasgos faciales.',
-      antes: 'assets/images/antes-despues/rino_3_antes.webp',
-      despues: 'assets/images/antes-despues/rino_3_despues.webp',
-      antesStyle: { 'object-position': 'center 62%' },
-      despuesStyle: { 'object-position': 'center 52%' }
+      antes: 'assets/images/antes-despues/rino_3_despues.webp',
+      despues: 'assets/images/antes-despues/rino_3_antes.webp',
+      antesStyle: { 'object-position': 'center 52%' },
+      despuesStyle: { 'object-position': 'center 62%' }
     },
     {
       titulo: 'Rinoplastia - Caso 3 (Femenino) · Vista ¾ izquierda',
       descripcion: 'En la vista de tres cuartos se aprecia la corrección del dorso y la nueva proyección de la punta nasal, con una transición natural entre frente, nariz y labio.',
-      antes: 'assets/images/antes-despues/rino_4_antes.webp',
-      despues: 'assets/images/antes-despues/rino_4_despues.webp',
+      antes: 'assets/images/antes-despues/rino_4_despues.webp',
+      despues: 'assets/images/antes-despues/rino_4_antes.webp',
       antesStyle: { 'object-position': 'center 58%' },
       despuesStyle: { 'object-position': 'center 58%' }
     },
     {
       titulo: 'Rinoplastia - Caso 3 (Femenino) · Vista ¾ derecha',
       descripcion: 'El lado derecho confirma la simetría del resultado: dorso recto, punta definida y un perfil equilibrado conservando la identidad facial de la paciente.',
-      antes: 'assets/images/antes-despues/rino_5_antes.webp',
-      despues: 'assets/images/antes-despues/rino_5_despues.webp',
+      antes: 'assets/images/antes-despues/rino_5_despues.webp',
+      despues: 'assets/images/antes-despues/rino_5_antes.webp',
       antesStyle: { 'object-position': 'center 55%' },
       despuesStyle: { 'object-position': 'center 55%' }
     },
     {
       titulo: 'Rinoplastia - Caso 4 (Femenino) · Vista ¾',
       descripcion: 'Reducción de giba y refinamiento de la punta nasal que suavizan la expresión del rostro, con un resultado natural y proporcionado a sus facciones.',
-      antes: 'assets/images/antes-despues/rino_6_antes.webp',
-      despues: 'assets/images/antes-despues/rino_6_despues.webp',
+      antes: 'assets/images/antes-despues/rino_6_despues.webp',
+      despues: 'assets/images/antes-despues/rino_6_antes.webp',
       antesStyle: { 'object-position': 'center 60%' },
       despuesStyle: { 'object-position': 'center 60%' }
     },
     {
       titulo: 'Rinoplastia - Caso 4 (Femenino) · Perfil izquierdo',
       descripcion: 'El perfil izquierdo muestra la corrección de la giba dorsal y la elevación de la punta, logrando una línea nasal suave y femenina con buena función respiratoria.',
-      antes: 'assets/images/antes-despues/rino_7_antes.webp',
-      despues: 'assets/images/antes-despues/rino_7_despues.webp',
+      antes: 'assets/images/antes-despues/rino_7_despues.webp',
+      despues: 'assets/images/antes-despues/rino_7_antes.webp',
       antesStyle: { 'object-position': 'center 56%' },
       despuesStyle: { 'object-position': 'center 56%' }
     },
     {
       titulo: 'Rinoplastia - Caso 4 (Femenino) · Perfil derecho',
       descripcion: 'En el perfil derecho se confirma un dorso rectificado y una punta nasal mejor proyectada, con una transición armónica hacia el labio superior y el mentón.',
-      antes: 'assets/images/antes-despues/rino_8_antes.webp',
-      despues: 'assets/images/antes-despues/rino_8_despues.webp',
-      antesStyle: { 'object-position': 'center 53%' },
-      despuesStyle: { 'object-position': 'center 50%' }
+      antes: 'assets/images/antes-despues/rino_8_despues.webp',
+      despues: 'assets/images/antes-despues/rino_8_antes.webp',
+      antesStyle: { 'object-position': 'center 50%' },
+      despuesStyle: { 'object-position': 'center 53%' }
     }
   ];
 }
